@@ -1,8 +1,8 @@
 import React from "react";
 
-import logoWhite from "../assets//image/logo-white.png";
+import logoWhite from "../assets/image/logo-white.png";
 
-export default function Navbar() {
+export default function NavbarSearch() {
 	return (
 		<div className="navbar bg-blueBg">
 			<div className="navbar-start">
@@ -49,11 +49,18 @@ export default function Navbar() {
 				</a>
 			</div>
 			<div className="navbar-end">
-				<div className="flex">
+				<div className="flex items-center gap-3">
+					<div className="form-control">
+						<input
+							type="text"
+							placeholder="Search"
+							className="input input-bordered w-56 h-8 text-base px-3 py-2 rounded-3xl placeholder:text-black text-black bg-white"
+						/>
+					</div>
 					<div className="dropdown dropdown-end">
 						<label tabIndex={0} className="btn btn-ghost btn-circle avatar">
 							<div className="w-10 rounded-full">
-								<img src="https://placeimg.com/80/80/people" alt="avatar" />
+								<img src="https://placeimg.com/80/80/people" />
 							</div>
 						</label>
 						<ul

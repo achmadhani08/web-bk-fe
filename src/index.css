@@ -12,6 +12,19 @@ code {
 		monospace;
 }
 
+/** Scrollbar */
+/* ::-webkit-scrollbar {
+	width: 8px;
+	max-height: 10px;
+	height: 5px;
+}
+::-webkit-scrollbar-track {
+	background: transparent;
+}
+::-webkit-scrollbar-thumb {
+	background: transparent;
+} */
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

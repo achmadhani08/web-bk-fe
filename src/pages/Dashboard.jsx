@@ -9,7 +9,10 @@ import {
 	getPelanggars,
 	pelanggarSelectors,
 } from "../lib/stateManager/reducers/pelanggarSlice";
+
 import TableAchievement from "../components/TableAchievement";
+import Navbar from "../components/Navbar";
+import CardsDashboard from "../components/CardsDashboard";
 
 const noData = [
 	{
@@ -95,34 +98,56 @@ export default function Dashboard() {
 	}, [dispatch]);
 
 	return (
-		<div className="bg-white flex h-full">
-			<div className="w-1/2 py-2 px-6">
-				<div className="py-2 bg-green-600 rounded-2xl mb-4">
-					<h2 className="uppercase text-white font-semibold justify-center flex">
-						Penghargaan
-					</h2>
+		<>
+			<Navbar />
+			<div className="bg-white flex flex-col w-full h-full">
+				<div className="w-full">
+					<CardsDashboard />
 				</div>
 
-				{prestasis.length != 0 ? (
-					<TableAchievement datas={prestasis} color="green-500" />
-				) : (
-					<TableAchievement datas={noData} color="green-500" />
-				)}
-			</div>
+				<div className="w-full flex">
+					<div className="w-1/2 pt-2 pb-6 px-6">
+						<div className="bg-green-500 rounded-2xl shadow-xl">
+							<div className="py-2 bg-green-600 rounded-t-2xl">
+								<h2 className="uppercase text-white font-semibold justify-center flex">
+									Penghargaan
+								</h2>
+							</div>
 
-			<div className="w-1/2 py-2 px-6">
-				<div className="py-2 bg-red-700 rounded-2xl mb-4">
-					<h2 className="uppercase text-white font-semibold justify-center flex">
-						Pelanggaran
-					</h2>
+							{prestasis.length !== 0 ? (
+								<TableAchievement
+									datas={prestasis}
+									borderColor="border-green-600"
+								/>
+							) : (
+								<TableAchievement
+									datas={noData}
+									borderColor="border-green-600"
+								/>
+							)}
+						</div>
+					</div>
+
+					<div className="w-1/2 pt-2 pb-6 px-6">
+						<div className="bg-red-500 rounded-2xl shadow-xl">
+							<div className="py-2 bg-red-600 rounded-t-2xl">
+								<h2 className="uppercase text-white font-semibold justify-center flex">
+									Pelanggaran
+								</h2>
+							</div>
+
+							{pelanggars.length !== 0 ? (
+								<TableAchievement
+									datas={pelanggars}
+									borderColor="border-red-600"
+								/>
+							) : (
+								<TableAchievement datas={noData} borderColor="border-red-600" />
+							)}
+						</div>
+					</div>
 				</div>
-
-				{pelanggars.length != 0 ? (
-					<TableAchievement datas={pelanggars} color="red-600" />
-				) : (
-					<TableAchievement datas={noData} color="red-600" />
-				)}
 			</div>
-		</div>
+		</>
 	);
 }

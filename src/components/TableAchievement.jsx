@@ -1,37 +1,30 @@
-export default function TableAchievement({ datas, color }) {
+export default function TableAchievement({ datas, borderColor }) {
 	return (
-		<table className="w-full table-auto text-black">
+		// border ${borderColor}
+		<table className="w-full border-collapse table-auto text-slate-200">
 			<thead>
-				<tr className="first:rounded-tl-2xl last:rounded-tr-2xl">
-					<th
-						className={`border rounded-tl-2xl border-${color} text-base font-medium`}
-					>
-						No
-					</th>
-					<th className={`border border-${color} text-base font-medium`}>
-						Nama
-					</th>
-					<th className={`border border-${color} text-base font-medium`}>
-						Kelas
-					</th>
-					<th className={`border border-${color} text-base font-medium`}>
-						Point
-					</th>
+				<tr className="text-base font-semibold">
+					<th className={``}>No</th>
+					<th className={`border-x-2 ${borderColor}`}>Nama</th>
+					<th className={`border-x-2 ${borderColor}`}>Kelas</th>
+					<th className={``}>Point</th>
 				</tr>
 			</thead>
 			<tbody>
 				{datas
 					?.sort((a, b) => b.point - a.point)
 					.map((data, index) => (
-						<tr className="text-center" key={data.id}>
-							<td className={`border border-${color}`}>{index + 1}</td>
-							<td className={`border text-start pl-3 border-${color}`}>
+						<tr className="text-center text-base font-medium" key={data.id}>
+							<td className={`py-1 border-t-2 ${borderColor}`}>{index + 1}</td>
+							<td
+								className={`py-1 text-start pl-3 border-t-2 border-x-2 ${borderColor}`}
+							>
 								{data.nama}
 							</td>
-							<td className={`border border-${color}`}>
+							<td className={`py-1 border-t-2 border-x-2 ${borderColor}`}>
 								{data.kelas} {data.jurusan}
 							</td>
-							<td className={`border border-${color}`}>{data.point}</td>
+							<td className={`py-1 border-t-2 ${borderColor}`}>{data.point}</td>
 						</tr>
 					))}
 			</tbody>

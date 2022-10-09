@@ -1,7 +1,7 @@
 import React from "react";
 
-import image from "../assets/rectangle.png";
-import logoBlue from "../assets/logo-blue.png";
+import image from "../../assets/image/rectangle.png";
+import logoBlue from "../../assets/image/logo-blue.png";
 
 function LoginPage() {
 	return (
