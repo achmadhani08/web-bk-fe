@@ -1,8 +1,10 @@
-import React from "react";
+import { NavLink } from "react-router-dom";
 
 import logoWhite from "../assets/image/logo-white.png";
 
 export default function NavbarSearch() {
+	let activeLinkClassName =
+		"font-semibold active:bg-gray-300 text-black bg-gray-200";
 	return (
 		<div className="navbar bg-blueBg">
 			<div className="navbar-start">
@@ -28,25 +30,63 @@ export default function NavbarSearch() {
 						className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-white text-gray-700 rounded-box w-52"
 					>
 						<li>
-							<a href="/">Dashboard</a>
+							<NavLink
+								to="/"
+								exact={true}
+								className={({ isActive }) =>
+									isActive
+										? activeLinkClassName
+										: "active:bg-gray-200 active:text-black active:font-semibold"
+								}
+							>
+								Dashboard
+							</NavLink>
 						</li>
 						<li>
-							<a href="/list-point">List Point</a>
+							<NavLink
+								to="list-point"
+								exact={true}
+								className={({ isActive }) =>
+									isActive
+										? activeLinkClassName
+										: "active:bg-gray-200 active:text-black active:font-semibold"
+								}
+							>
+								List Point
+							</NavLink>
 						</li>
 						<li>
-							<a href="/rekapan-absensi">Rekapan Absensi</a>
+							<NavLink
+								to="rekapan-absensi"
+								className={({ isActive }) =>
+									isActive
+										? activeLinkClassName
+										: "active:bg-gray-200 active:text-black active:font-semibold"
+								}
+							>
+								Rekapan Absensi
+							</NavLink>
 						</li>
 						<li>
-							<a href="/rekapan-point-pelanggaran">Rekapan Point Pelanggaran</a>
+							<NavLink
+								to="rekapan-point-pelanggaran"
+								className={({ isActive }) =>
+									isActive
+										? activeLinkClassName
+										: "active:bg-gray-200 active:text-black active:font-semibold"
+								}
+							>
+								Rekapan Point Pelanggaran
+							</NavLink>
 						</li>
 					</ul>
 				</div>
 			</div>
 			<div className="navbar-center">
 				{/* <a className="btn btn-ghost normal-case text-xl">daisyUI</a> */}
-				<a href="/">
+				<NavLink to="/" className="flex justify-center">
 					<img src={logoWhite} alt="logo" width="65%" />
-				</a>
+				</NavLink>
 			</div>
 			<div className="navbar-end">
 				<div className="flex items-center gap-3">

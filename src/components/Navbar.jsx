@@ -1,10 +1,12 @@
-import React from "react";
+import { NavLink } from "react-router-dom";
 
 import logoWhite from "../assets//image/logo-white.png";
 
-export default function Navbar() {
+export default function Navbar({ matches }) {
+	let activeLinkClassName =
+		"font-semibold active:bg-gray-300 text-black bg-gray-200";
 	return (
-		<div className="navbar bg-blueBg">
+		<div className="navbar bg-color1">
 			<div className="navbar-start">
 				<div className="dropdown">
 					<label tabIndex={0} className="btn btn-ghost btn-circle">
@@ -28,25 +30,52 @@ export default function Navbar() {
 						className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-white text-gray-700 rounded-box w-52"
 					>
 						<li>
-							<a href="/">Dashboard</a>
+							<NavLink
+								to="/"
+								className={({ isActive }) =>
+									isActive ? activeLinkClassName : ""
+								}
+							>
+								Dashboard
+							</NavLink>
 						</li>
 						<li>
-							<a href="/list-point">List Point</a>
+							<NavLink
+								to="/list-point"
+								className={({ isActive }) =>
+									isActive ? activeLinkClassName : ""
+								}
+							>
+								List Point
+							</NavLink>
 						</li>
 						<li>
-							<a href="/rekapan-absensi">Rekapan Absensi</a>
+							<NavLink
+								to="/rekapan-absensi"
+								className={({ isActive }) =>
+									isActive ? activeLinkClassName : ""
+								}
+							>
+								Rekapan Absensi
+							</NavLink>
 						</li>
 						<li>
-							<a href="/rekapan-point-pelanggaran">Rekapan Point Pelanggaran</a>
+							<NavLink
+								to="/rekapan-point"
+								className={({ isActive }) =>
+									isActive ? activeLinkClassName : ""
+								}
+							>
+								Rekapan Point Pelanggaran
+							</NavLink>
 						</li>
 					</ul>
 				</div>
 			</div>
 			<div className="navbar-center">
-				{/* <a className="btn btn-ghost normal-case text-xl">daisyUI</a> */}
-				<a href="/">
+				<NavLink to="/" className="flex justify-center">
 					<img src={logoWhite} alt="logo" width="65%" />
-				</a>
+				</NavLink>
 			</div>
 			<div className="navbar-end">
 				<div className="flex">

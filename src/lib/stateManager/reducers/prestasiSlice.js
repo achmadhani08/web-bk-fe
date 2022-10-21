@@ -8,8 +8,9 @@ import axios from "axios";
 export const getPrestasis = createAsyncThunk(
 	"prestasis/getPrestasis",
 	async () => {
-		const response = await axios.get("http://localhost:3004/top-prestasi");
-		return response.data;
+		const response = await axios.get("http://localhost:3005/top-prestasi"); // Mock API
+		// const response = await axios.get("http://127.0.0.1:8000/api/top-prestasi"); // Laravel API
+		return response.data.data;
 	}
 );
 
