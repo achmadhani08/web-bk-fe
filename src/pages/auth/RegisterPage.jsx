@@ -1,4 +1,5 @@
 import { useRef } from "react";
+import { NavLink } from "react-router-dom";
 
 import image from "../../assets/image/rectangle.png";
 import logoBlue from "../../assets/image/logo-blue.png";
@@ -60,12 +61,12 @@ export default function RegisterPage() {
 							<label className="text-black text-xl pt-2 p-0">
 								<span>
 									Have an account?{" "}
-									<a
-										href="#"
+									<NavLink
+										to="/login"
 										className="link text-color1 no-underline text-semibold"
 									>
 										Sign in here
-									</a>
+									</NavLink>
 								</span>
 							</label>
 						</div>

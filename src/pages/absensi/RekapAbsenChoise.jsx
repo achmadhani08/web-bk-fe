@@ -43,9 +43,9 @@ export default function RekapAbsenChoise() {
 				<div className="w-full">
 					<div className="justify-evenly py-12 flex">
 						{/* Absensi per Bulan */}
-						<div className="card w-100 bg-color2 text-black">
+						<div className="card w-100 bg-color1 text-black">
 							<div className="card-body items-center text-center">
-								<h2 className="card-title">Data Absensi per Bulan</h2>
+								<h2 className="card-title">Data Absensi - Bulan</h2>
 
 								<div className="card-actions mt-3 flex">
 									{/* Select Kelas */}
@@ -96,12 +96,12 @@ export default function RekapAbsenChoise() {
 											}
 											label="Jurusan"
 										>
-											<MenuItem value="AKL-1">AKL-1</MenuItem>
-											<MenuItem value="AKL-2">AKL-2</MenuItem>
-											<MenuItem value="BDP-1">BDP-1</MenuItem>
-											<MenuItem value="BDP-2">BDP-2</MenuItem>
-											<MenuItem value="OTKP-1">OTKP-1</MenuItem>
-											<MenuItem value="OTKP-2">OTKP-2</MenuItem>
+											<MenuItem value="AKL1">AKL 1</MenuItem>
+											<MenuItem value="AKL2">AKL 2</MenuItem>
+											<MenuItem value="BDP1">BDP 1</MenuItem>
+											<MenuItem value="BDP2">BDP 2</MenuItem>
+											<MenuItem value="OTKP1">OTKP 1</MenuItem>
+											<MenuItem value="OTKP2">OTKP 2</MenuItem>
 											<MenuItem value="RPL">RPL</MenuItem>
 										</Select>
 									</FormControl>
@@ -171,9 +171,9 @@ export default function RekapAbsenChoise() {
 							</div>
 						</div>
 						{/* Absensi per Semester */}
-						<div className="card w-100 bg-color2 text-black">
+						<div className="card w-100 bg-color3 text-black">
 							<div className="card-body items-center text-center">
-								<h2 className="card-title">Data Absensi per Semester</h2>
+								<h2 className="card-title">Data Absensi - Semester</h2>
 
 								<div className="card-actions mt-3 flex">
 									{/* Select Kelas */}
@@ -224,12 +224,12 @@ export default function RekapAbsenChoise() {
 											}
 											label="Jurusan"
 										>
-											<MenuItem value="AKL-1">AKL-1</MenuItem>
-											<MenuItem value="AKL-2">AKL-2</MenuItem>
-											<MenuItem value="BDP-1">BDP-1</MenuItem>
-											<MenuItem value="BDP-2">BDP-2</MenuItem>
-											<MenuItem value="OTKP-1">OTKP-1</MenuItem>
-											<MenuItem value="OTKP-2">OTKP-2</MenuItem>
+											<MenuItem value="AKL1">AKL 1</MenuItem>
+											<MenuItem value="AKL2">AKL 2</MenuItem>
+											<MenuItem value="BDP1">BDP 1</MenuItem>
+											<MenuItem value="BDP2">BDP 2</MenuItem>
+											<MenuItem value="OTKP1">OTKP 1</MenuItem>
+											<MenuItem value="OTKP2">OTKP 2</MenuItem>
 											<MenuItem value="RPL">RPL</MenuItem>
 										</Select>
 									</FormControl>
@@ -290,9 +290,9 @@ export default function RekapAbsenChoise() {
 							</div>
 						</div>
 						{/* Absensi per Tahun */}
-						<div className="card w-100 bg-color2 text-black">
+						<div className="card w-100 bg-color1 text-black">
 							<div className="card-body items-center text-center">
-								<h2 className="card-title">Data Absensi per Tahun</h2>
+								<h2 className="card-title">Data Absensi - Tahun</h2>
 
 								<div className="card-actions mt-3 flex">
 									{/* Select Kelas */}
@@ -343,12 +343,12 @@ export default function RekapAbsenChoise() {
 											}
 											label="Jurusan"
 										>
-											<MenuItem value="AKL-1">AKL-1</MenuItem>
-											<MenuItem value="AKL-2">AKL-2</MenuItem>
-											<MenuItem value="BDP-1">BDP-1</MenuItem>
-											<MenuItem value="BDP-2">BDP-2</MenuItem>
-											<MenuItem value="OTKP-1">OTKP-1</MenuItem>
-											<MenuItem value="OTKP-2">OTKP-2</MenuItem>
+											<MenuItem value="AKL1">AKL 1</MenuItem>
+											<MenuItem value="AKL2">AKL 2</MenuItem>
+											<MenuItem value="BDP1">BDP 1</MenuItem>
+											<MenuItem value="BDP2">BDP 2</MenuItem>
+											<MenuItem value="OTKP1">OTKP 1</MenuItem>
+											<MenuItem value="OTKP2">OTKP 2</MenuItem>
 											<MenuItem value="RPL">RPL</MenuItem>
 										</Select>
 									</FormControl>

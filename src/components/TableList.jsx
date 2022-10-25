@@ -12,13 +12,13 @@ export default function TableList({ rows, columns }) {
 				disableColumnSelector
 				disableDensitySelector
 				rowsPerPageOptions={[6, 12]}
-				components={{ Toolbar: GridToolbar }}
-				componentsProps={{
-					toolbar: {
-						showQuickFilter: true,
-						quickFilterProps: { debounceMs: 500 },
-					},
-				}}
+				// components={{ Toolbar: GridToolbar }}
+				// componentsProps={{
+				// 	toolbar: {
+				// 		showQuickFilter: true,
+				// 		quickFilterProps: { debounceMs: 500 },
+				// 	},
+				// }}
 			/>
 		</div>
 	);

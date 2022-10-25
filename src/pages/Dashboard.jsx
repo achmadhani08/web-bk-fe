@@ -48,7 +48,7 @@ export default function Dashboard() {
 
 				<div className="w-full flex">
 					<div className="w-1/2 pt-2 pb-6 pl-6 pr-3">
-						<div className="bg-white rounded-2xl hover:shadow-md hover:shadow-slate-600">
+						<div className="bg-white rounded-2xl hover:shadow-md hover:shadow-slate-500">
 							<div className="py-2 border border-color1 rounded-t-2xl">
 								<h2 className="uppercase text-black font-semibold justify-center text-lg items-center flex">
 									<MdVerified />
@@ -77,7 +77,7 @@ export default function Dashboard() {
 					</div>
 
 					<div className="w-1/2 pt-2 pb-6 pl-3 pr-6">
-						<div className="bg-white rounded-2xl hover:shadow-lg hover:shadow-slate-600">
+						<div className="bg-white rounded-2xl hover:shadow-md hover:shadow-slate-500">
 							<div className="py-2 border border-color1 rounded-t-2xl">
 								<h2 className="uppercase text-black font-semibold justify-center text-lg items-center flex">
 									<MdNotInterested />
