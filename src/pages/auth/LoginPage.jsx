@@ -7,10 +7,7 @@ import logoBlue from "../../assets/image/logo-blue.png";
 export default function LoginPage() {
 	return (
 		<div className="hero min-h-screen bg-color2">
-			<div
-				className="hero-content flex-col lg:flex-row bg-white p-0"
-				style={{ maxHeight: "95vh" }}
-			>
+			<div className="hero-content max-h-[95vh] flex-col lg:flex-row bg-white p-0">
 				<div className="w-1/2 min-h-full text-center lg:text-left py-8 pl-8">
 					<img src={logoBlue} width="50%" alt="logo" />
 					<div className="px-12 py-14">
@@ -63,7 +60,7 @@ export default function LoginPage() {
 				</div>
 				<div className="w-1/2 p-5">
 					<figure>
-						<img src={image} style={{ maxHeight: "95vh" }} alt="rectangle" />
+						<img src={image} className="max-h-[95vh]" alt="rectangle" />
 					</figure>
 				</div>
 			</div>

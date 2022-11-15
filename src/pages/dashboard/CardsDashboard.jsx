@@ -1,8 +1,8 @@
 import { FaUserCheck, FaUserTimes } from "react-icons/fa";
 import { MdMail, MdSick, MdWatchLater } from "react-icons/md";
-import CardDashboard from "./CardDashboard";
+import CardDashboard from "../../components/CardDashboard";
 
-function CardsDashboard({ datas }) {
+export default function CardsDashboard({ datas }) {
 	return (
 		<div className="flex gap-4 px-6 py-6 select-none cursor-default">
 			{datas.map((data) => {
@@ -11,8 +11,8 @@ function CardsDashboard({ datas }) {
 						return (
 							<CardDashboard
 								key={data.id}
-								bgColor="bg-color1"
-								bgIcon="bg-color2"
+								bgColor="bg-color4"
+								bgIcon="bg-color3"
 								icon={<FaUserCheck size={20} />}
 								category={data.category}
 								sum={data.siswa}
@@ -24,8 +24,8 @@ function CardsDashboard({ datas }) {
 						return (
 							<CardDashboard
 								key={data.id}
-								bgColor="bg-color2"
-								bgIcon="bg-color1"
+								bgColor="bg-color3"
+								bgIcon="bg-color4"
 								icon={<MdMail size={20} />}
 								category={data.category}
 								sum={data.siswa}
@@ -37,8 +37,8 @@ function CardsDashboard({ datas }) {
 						return (
 							<CardDashboard
 								key={data.id}
-								bgColor="bg-color1"
-								bgIcon="bg-color2"
+								bgColor="bg-color4"
+								bgIcon="bg-color3"
 								icon={<MdSick size={20} />}
 								category={data.category}
 								sum={data.siswa}
@@ -50,8 +50,8 @@ function CardsDashboard({ datas }) {
 						return (
 							<CardDashboard
 								key={data.id}
-								bgColor="bg-color2"
-								bgIcon="bg-color1"
+								bgColor="bg-color3"
+								bgIcon="bg-color4"
 								icon={<MdWatchLater size={20} />}
 								category={data.category}
 								sum={data.siswa}
@@ -63,8 +63,8 @@ function CardsDashboard({ datas }) {
 						return (
 							<CardDashboard
 								key={data.id}
-								bgColor="bg-color1"
-								bgIcon="bg-color2"
+								bgColor="bg-color4"
+								bgIcon="bg-color3"
 								icon={<FaUserTimes size={20} />}
 								category={data.category}
 								sum={data.siswa}
@@ -79,5 +79,3 @@ function CardsDashboard({ datas }) {
 		</div>
 	);
 }
-
-export default CardsDashboard;

@@ -8,10 +8,10 @@ import axios from "axios";
 export const getListPelanggarans = createAsyncThunk(
 	"listPelanggarans/getListPelanggarans",
 	async () => {
-		const response = await axios.get("http://localhost:3005/list-pelanggaran"); // Mock API
-		// const response = await axios.get(
-		// 	"http://127.0.0.1:8000/api/list-pelanggaran"
-		// ); // Laravel API
+		// const response = await axios.get("http://localhost:3005/list-pelanggaran"); // Mock API
+		const response = await axios.get(
+			"http://127.0.0.1:8000/api/list-pelanggaran"
+		); // Laravel API
 		return response.data.data;
 	}
 );
