@@ -20,7 +20,6 @@ export default function RekapanPoint() {
 		<div className="min-h-screen bg-color1">
 			<Navbar />
 
-			{/* <div className="bg-color1"> */}
 			<div className="w-full sticky top-[5.5rem] z-10">
 				<Filter request={request} setRequest={setRequest} />
 			</div>
@@ -43,7 +42,6 @@ export default function RekapanPoint() {
 					/>
 				)}
 			</div>
-			{/* </div> */}
 		</div>
 	);
 }

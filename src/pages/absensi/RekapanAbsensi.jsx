@@ -120,44 +120,42 @@ export default function RekapanAbsensi() {
 	}
 
 	return (
-		<>
+		<div className="min-h-screen bg-color1">
 			<Navbar />
 
-			<div className="bg-color1">
-				<div className="w-full sticky top-[5.5rem] z-10">
-					<Filter
-						request={request}
-						kelasJurusans={kelasJurusans}
-						setRequest={setRequest}
-						radioButton={radioButton}
-						handleRadio={handleRadio}
-					/>
-				</div>
-
-				<div className="w-full py-8 px-6">
-					{radioButton === "bulan" ? (
-						<TableRekapAbsenBulan request={request} />
-					) : null}
-					{radioButton === "semester" ? (
-						<TableRekapAbsenSemester
-							datas={dataRekapanAbsensiSemester}
-							title={`Rekapan Absensi ${request.jurusan} Semester ${capitalize(
-								request.semester
-							)} `}
-							borderColor="border-color4"
-							hoverBg="bg-color2"
-						/>
-					) : null}
-					{radioButton === "tahun" ? (
-						<TableRekapAbsenTahun
-							datas={dataRekapanAbsensiTahun}
-							title={`Rekapan Absensi ${request.jurusan} Tahun ${request.tahun} `}
-							borderColor="border-color4"
-							hoverBg="bg-color2"
-						/>
-					) : null}
-				</div>
+			<div className="w-full sticky top-[5.5rem] z-10">
+				<Filter
+					request={request}
+					kelasJurusans={kelasJurusans}
+					setRequest={setRequest}
+					radioButton={radioButton}
+					handleRadio={handleRadio}
+				/>
 			</div>
-		</>
+
+			<div className="w-full py-8 px-6">
+				{radioButton === "bulan" ? (
+					<TableRekapAbsenBulan request={request} />
+				) : null}
+				{radioButton === "semester" ? (
+					<TableRekapAbsenSemester
+						datas={dataRekapanAbsensiSemester}
+						title={`Rekapan Absensi ${request.jurusan} Semester ${capitalize(
+							request.semester
+						)} `}
+						borderColor="border-color4"
+						hoverBg="bg-color2"
+					/>
+				) : null}
+				{radioButton === "tahun" ? (
+					<TableRekapAbsenTahun
+						datas={dataRekapanAbsensiTahun}
+						title={`Rekapan Absensi ${request.jurusan} Tahun ${request.tahun} `}
+						borderColor="border-color4"
+						hoverBg="bg-color2"
+					/>
+				) : null}
+			</div>
+		</div>
 	);
 }

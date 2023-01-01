@@ -1,3 +1,5 @@
+import { FaRegFilePdf } from "react-icons/fa";
+
 import TablePelanggaranSiswa from "../../components/TablePelanggaranSiswa";
 import TablePenghargaanSiswa from "../../components/TablePenghargaanSiswa";
 import TableKumulatifSiswa from "../../components/TableKumulatifSiswa";
@@ -16,12 +18,14 @@ export default function TableRekapPointSiswa({ datas, borderColor, hoverBg }) {
 			<div className="flex gap-6 justify-between">
 				<TablePelanggaranSiswa
 					datas={datas.rekap_pelanggaran}
+					siswa_id={datas.id}
 					title="Rekapan Point Pelanggaran"
 					borderColor={borderColor}
 					hoverBg={hoverBg}
 				/>
 				<TablePenghargaanSiswa
 					datas={datas.rekap_penghargaan}
+					siswa_id={datas.id}
 					title="Rekapan Point Penghargaan"
 					borderColor={borderColor}
 					hoverBg={hoverBg}
@@ -42,6 +46,13 @@ export default function TableRekapPointSiswa({ datas, borderColor, hoverBg }) {
 					hoverBg={hoverBg}
 				/>
 			</div>
+
+			<button
+				className="btn fixed bottom-[1.5rem] right-[1.5rem] btn-square bg-color1 hover:bg-color2 text-black shadow-sm shadow-slate-400 border-none"
+				// onClick={exportPdf}
+			>
+				<FaRegFilePdf size={20} />
+			</button>
 		</>
 	);
 }
