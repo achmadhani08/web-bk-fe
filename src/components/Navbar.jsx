@@ -1,13 +1,14 @@
-import React from "react";
+import { NavLink } from "react-router-dom";
 
-import logoWhite from "../assets/logo-white.png";
+import logosmk10 from "../assets/image/logo-10.png";
+import logobk from "../assets/image/logo-bk.png";
 
 export default function Navbar() {
 	return (
-		<div className="navbar bg-blueBg">
+		<div className="navbar bg-color4 sticky top-0 z-20">
 			<div className="navbar-start">
 				<div className="dropdown">
-					<label tabIndex={0} className="btn btn-ghost btn-circle">
+					<label tabIndex="0" className="btn btn-ghost btn-circle">
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
 							className="h-5 w-5 text-white"
@@ -20,58 +21,81 @@ export default function Navbar() {
 								strokeLinejoin="round"
 								strokeWidth="2"
 								d="M4 6h16M4 12h16M4 18h7"
-							/>
+							></path>
 						</svg>
 					</label>
 					<ul
-						tabIndex={0}
-						className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-white text-gray-700 rounded-box w-52"
+						tabIndex="0"
+						className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-color1 text-gray-700 rounded-box w-52"
 					>
 						<li>
-							<a href="/">Dashboard</a>
+							<NavLink
+								className="font-semibold active:bg-gray-300 text-black bg-gray-200"
+								to="/"
+							>
+								Dashboard
+							</NavLink>
+							{/* <a aria-current="page"></a> */}
 						</li>
 						<li>
-							<a href="/list-point">List Point</a>
+							<NavLink className="" to="/list-point">
+								List Point
+							</NavLink>
+							{/* <a className="" href="/list-point">
+								List Point
+							</a> */}
 						</li>
 						<li>
-							<a href="/rekapan-absensi">Rekapan Absensi</a>
+							<NavLink className="" to="/rekapan-absensi">
+								Rekapan Absensi
+							</NavLink>
+							{/* <a className="" href="/rekapan-absensi"></a> */}
 						</li>
 						<li>
-							<a href="/rekapan-point-pelanggaran">Rekapan Point Pelanggaran</a>
+							<NavLink className="" to="/rekapan-point">
+								Rekapan Point Pelanggaran
+							</NavLink>
+							{/* <a
+								aria-current="page"
+								className="font-semibold active:bg-gray-300 text-black bg-gray-200"
+								href="/rekapan-point"
+							>
+								Rekapan
+							</a> */}
 						</li>
 					</ul>
 				</div>
 			</div>
 			<div className="navbar-center">
-				{/* <a className="btn btn-ghost normal-case text-xl">daisyUI</a> */}
-				<a href="/">
-					<img src={logoWhite} alt="logo" width="65%" />
-				</a>
+				<div className="flex select-none gap-10 justify-center">
+					<a href="https://smkn10jakarta.sch.id/" target="_blank">
+						<img src={logosmk10} alt="logo" style={{ width: "4rem" }} />
+					</a>
+					<a aria-current="page" href="/">
+						<img src={logobk} alt="logo" style={{ width: "4.5rem" }} />
+					</a>
+					{/* <NavLink to="https://smkn10jakarta.sch.id/" target="_blank">
+						<img src={logosmk10} alt="logo" style="width: 4rem" />
+					</NavLink>
+					<NavLink to="/">
+						<img src={logobk} alt="logo" style="width: 4.5rem" />
+					</NavLink> */}
+				</div>
 			</div>
 			<div className="navbar-end">
-				<div className="flex items-center gap-3">
-					<div className="form-control">
-						<input
-							type="text"
-							placeholder="Search"
-							className="input input-bordered w-56 h-8 text-base px-3 py-2 rounded-3xl placeholder:text-black text-black bg-white"
-						/>
-					</div>
+				<div className="flex">
 					<div className="dropdown dropdown-end">
-						<label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+						<label tabIndex="0" className="btn btn-ghost btn-circle avatar">
 							<div className="w-10 rounded-full">
-								<img src="https://placeimg.com/80/80/people" />
+								<img src="https://placeimg.com/80/80/people" alt="avatar" />
 							</div>
 						</label>
 						<ul
-							tabIndex={0}
+							tabIndex="0"
 							className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-white text-gray-700 rounded-box w-52"
 						>
 							<li>
-								<a href="/profile">
-									Profile
-									{/* <span className="badge">New</span> */}
-								</a>
+								<a href="/profile">Profile</a>
 							</li>
 							<li>
 								<p>Logout</p>
