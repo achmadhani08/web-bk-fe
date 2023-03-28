@@ -1,15 +1,24 @@
 import { FaRegFilePdf } from "react-icons/fa";
+import JsPDF from "jspdf";
 
-export const TableRekapAbsenTahun = ({
+export default function TableSiswa({
 	datas,
 	title,
 	icon,
 	borderColor,
 	hoverBg,
-}) => {
+}) {
+	const exportPdf = () => {
+		const report = new JsPDF("landscape", "pt", "a4");
+		report.html(document.querySelector("#table-siswa")).then(() => {
+			report.save(`${title}.pdf`);
+		});
+	};
+
+	console.log(datas);
 	return (
 		<>
-			<div id="table-tahun">
+			<div id="table-siswa">
 				<div className={`py-2 border-2 ${borderColor} rounded-t-2xl`}>
 					<h2 className="text-black font-medium justify-center text-xl items-center flex">
 						{icon}
@@ -27,10 +36,6 @@ export const TableRekapAbsenTahun = ({
 							<th className={`border-x-2 ${borderColor} w-[15%]`}>
 								Jenis Kelamin
 							</th>
-							<th className={`border-x-2 ${borderColor} w-[8%]`}>Sakit</th>
-							<th className={`border-x-2 ${borderColor} w-[8%]`}>Izin</th>
-							<th className={`border-x-2 ${borderColor} w-[8%]`}>Alfa</th>
-							<th className={`border-x-2 ${borderColor} w-[8%]`}>Terlambat</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -53,18 +58,6 @@ export const TableRekapAbsenTahun = ({
 								<td className={`py-1 border-t-2 border-x-2  ${borderColor}`}>
 									{data.jk}
 								</td>
-								<td className={`py-1 border-t-2 border-x-2  ${borderColor}`}>
-									{data.keterangan.S}
-								</td>
-								<td className={`py-1 border-t-2 border-x-2  ${borderColor}`}>
-									{data.keterangan.I}
-								</td>
-								<td className={`py-1 border-t-2 border-x-2  ${borderColor}`}>
-									{data.keterangan.A}
-								</td>
-								<td className={`py-1 border-t-2 border-x-2  ${borderColor}`}>
-									{data.keterangan.T}
-								</td>
 							</tr>
 						))}
 					</tbody>
@@ -75,10 +68,10 @@ export const TableRekapAbsenTahun = ({
 
 			<button
 				className="btn fixed bottom-[1.5rem] right-[1.5rem] btn-square bg-color1 hover:bg-color2 text-black shadow-sm shadow-slate-400 border-none"
-				// onClick={exportPdf}
+				onClick={exportPdf}
 			>
 				<FaRegFilePdf size={20} />
 			</button>
 		</>
 	);
-};
+}

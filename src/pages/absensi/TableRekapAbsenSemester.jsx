@@ -1,4 +1,5 @@
 import { FaRegFilePdf } from "react-icons/fa";
+import JsPDF from "jspdf";
 
 export const TableRekapAbsenSemester = ({
 	datas,
@@ -7,96 +8,14 @@ export const TableRekapAbsenSemester = ({
 	borderColor,
 	hoverBg,
 }) => {
-	// const exportPdf = () => {
-	// 	const doc = new jsPDF();
-	// 	doc.autoTable({ html: "#export-table" });
-	// 	doc.save(`rekapan-absensi-${kelas}-${jurusan}-${bulan}-${tahun}.pdf`);
-	// };
+	const exportPdf = () => {
+		const report = new JsPDF("landscape", "m", "a4");
+		report.html(document.querySelector("#table-semester")).then(() => {
+			report.save(`${title}.pdf`);
+		});
+	};
 
-	// const exportColumns = cols.map((col) => ({
-	// 	title: col.header,
-	// 	dataKey: col.field,
-	// 	colSpan: col.colSpan,
-	// 	styles: { halign: "center" },
-	// }));
-
-	// const exportPdf = () => {
-	// 	import("jspdf").then((jsPDF) => {
-	// 		import("jspdf-autotable").then(() => {
-	// 			const doc = new jsPDF.default("landscape", 0, 0);
-	// 			doc.autoTable({
-	// 				head: [
-	// 					[
-	// 						{
-	// 							content: `Rekapan Absensi ${kelas} ${jurusan} Semester ${semester} ${tahun}`,
-	// 							colSpan: 12,
-	// 							styles: { halign: "center" },
-	// 						},
-	// 					],
-	// 					exportColumns,
-	// 				],
-	// 				body: [
-	// 					[
-	// 						{
-	// 							content: "1",
-	// 							colSpan: 1,
-	// 							styles: { halign: "center" },
-	// 						},
-	// 						{
-	// 							content: "1234",
-	// 							colSpan: 1,
-	// 							styles: { halign: "center" },
-	// 						},
-	// 						{
-	// 							content: "Rendi Andika",
-	// 							colSpan: 4,
-	// 							styles: { halign: "center" },
-	// 						},
-	// 						{
-	// 							content: "Laki-Laki",
-	// 							colSpan: 2,
-	// 							styles: { halign: "center" },
-	// 						},
-	// 						{
-	// 							content: "2",
-	// 							colSpan: 1,
-	// 							styles: { halign: "center" },
-	// 						},
-	// 						{
-	// 							content: "4",
-	// 							colSpan: 1,
-	// 							styles: { halign: "center" },
-	// 						},
-	// 						{
-	// 							content: "1",
-	// 							colSpan: 1,
-	// 							styles: { halign: "center" },
-	// 						},
-	// 						{
-	// 							content: "3",
-	// 							colSpan: 1,
-	// 							styles: { halign: "center" },
-	// 						},
-	// 					],
-	// 				],
-	// 			});
-	// 			doc.save(`dashboard-prestasi.pdf`);
-	// 		});
-	// 	});
-	// };
-
-	// const exportPdf = () => {
-	// 	import("jspdf").then((jsPDF) => {
-	// 		import("jspdf-autotable").then(() => {
-	// 			const doc = new jsPDF.default("landscape", 0, 0);
-	// 			doc.autoTable(exportColumns, dataRekapanAbsensiSemester);
-	// 			doc.save(
-	// 				`rekapan-absensi-${kelas}-${jurusan}-${semester}-${tahun}.pdf`
-	// 			);
-	// 		});
-	// 	});
-	// };
-	console.log(datas);
+	// console.log(datas);
 	return (
 		<>
 			<div id="table-semester">
@@ -165,7 +84,7 @@ export const TableRekapAbsenSemester = ({
 
 			<button
 				className="btn fixed bottom-[1.5rem] right-[1.5rem] btn-square bg-color1 hover:bg-color2 text-black shadow-sm shadow-slate-400 border-none"
-				// onClick={exportPdf}
+				onClick={exportPdf}
 			>
 				<FaRegFilePdf size={20} />
 			</button>

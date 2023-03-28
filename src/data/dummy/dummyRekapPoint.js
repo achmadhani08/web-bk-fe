@@ -259,18 +259,18 @@ export const dataRekapPointKelas = [
 
 export const dataRekapPointSiswa = {
 	id: 1,
-	nis: "932594",
+	nis: "93259",
 	nama: "Miss Litzy Hammes",
 	kelas: "10 OTKP1",
 	rekap_pelanggaran: [
 		{
-			tanggal: "7-11-2022",
+			tanggal: "07-11-2022",
 			jenis: 31,
 			desc: "Tidak hadir tanpa keterangan / alpha, membolos",
 			point: 10,
 		},
 		{
-			tanggal: "8-11-2022",
+			tanggal: "08-11-2022",
 			jenis: 37,
 			desc: "Baju dikeluarkan",
 			point: 5,
@@ -296,7 +296,7 @@ export const dataRekapPointSiswa = {
 	],
 	rekap_penghargaan: [
 		{
-			tanggal: "14-12-2022",
+			tanggal: "Wed Dec 14 2022 00:00:00 GMT+0700 (Western Indonesia Time)",
 			jenis: 6,
 			desc: "Membawa nama baik sekolah tingkat kecamatan",
 			point: 10,

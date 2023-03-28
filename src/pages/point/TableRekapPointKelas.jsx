@@ -141,7 +141,7 @@ export default function TableRekapPointKelas({
 									{data.kumulatif}
 								</td>
 								<td className={`py-1 border-t-2 border-x-2  ${borderColor}`}>
-									{data.tindakan}
+									{data.tindakan ? data.tindakan : "-"}
 								</td>
 							</tr>
 						))}

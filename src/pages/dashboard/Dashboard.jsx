@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { MdNotInterested, MdVerified } from "react-icons/md";
 
@@ -11,28 +11,74 @@ import {
 	pelanggarSelectors,
 } from "../../lib/stateManager/reducers/pelanggarSlice";
 import {
-	getTodayPresents,
-	todayPresentsSelectors,
-} from "../../lib/stateManager/reducers/todayPresentsSlice";
+	getTodayPresences,
+	todayPresencesSelectors,
+} from "../../lib/stateManager/reducers/todayPresencesSlice";
 
 import Navbar from "../../components/Navbar";
 import CardsDashboard from "./CardsDashboard";
 import TableAchievement from "./TableAchievement";
 
 import { dummyTopList } from "../../data/dummy/dummyTopList";
-import { dummyTodayPresents } from "../../data/dummy/dummyTodayPresents";
+import { dummyTodayPresences } from "../../data/dummy/dummyTodayPresences";
 
 export default function Dashboard() {
 	const dispatch = useDispatch();
-	const prestasis = useSelector(prestasiSelectors.selectAll);
-	const pelanggars = useSelector(pelanggarSelectors.selectAll);
-	const todayPresents = useSelector(todayPresentsSelectors.selectAll);
+	const apiPrestasis = useSelector(prestasiSelectors.selectAll);
+	const apiPelanggars = useSelector(pelanggarSelectors.selectAll);
+	const [prestasis, setPrestasis] = useState(apiPrestasis);
+	const [pelanggars, setPelanggars] = useState(apiPelanggars);
+	const todayPresences = useSelector(todayPresencesSelectors.selectAll);
 
 	useEffect(() => {
 		dispatch(getPrestasis());
 		dispatch(getPelanggars());
-		dispatch(getTodayPresents());
+		dispatch(getTodayPresences());
 	}, [dispatch]);
+
+	useEffect(() => {
+		setPelanggars(apiPelanggars);
+		// console.log("set data pelanggar");
+	}, [apiPelanggars]);
+	useEffect(() => {
+		setPrestasis(apiPrestasis);
+		// console.log("set data prestasi");
+	}, [apiPrestasis]);
+
+	useEffect(() => {
+		if (apiPrestasis?.length > 0 && prestasis?.length < 10) {
+			setPrestasis([
+				...prestasis,
+				{
+					id: prestasis?.length + 1,
+					nama: "Tidak ada data",
+					kelas: "Tidak ada data",
+					jurusan: "",
+					point: "Tidak ada data",
+				},
+			]);
+			// console.log(`Data Prestasi kurang ${10 - prestasis?.length}`);
+		}
+		if (apiPelanggars?.length > 0 && pelanggars?.length < 10) {
+			// console.log(`Data Pelanggar kurang ${10 - pelanggars?.length}`);
+			setPelanggars([
+				...pelanggars,
+				{
+					id: pelanggars?.length + 1,
+					nama: "Tidak ada data",
+					kelas: "Tidak ada data",
+					jurusan: "",
+					point: "Tidak ada data",
+				},
+			]);
+		}
+	}, [prestasis, pelanggars]);
+
+	// console.log(apiPelanggars?.length);
+	// console.log(apiPrestasis?.length);
+	// console.log(pelanggars, "pelanggar");
+	// console.log(prestasis, "prestasi");
+	// console.log(todayPresences, "todayPresences");
 
 	return (
 		<>
@@ -40,10 +86,10 @@ export default function Dashboard() {
 
 			<div className="bg-color1 flex flex-col w-full h-full">
 				<div className="w-full">
-					{todayPresents.length !== 0 ? (
-						<CardsDashboard datas={todayPresents} />
+					{todayPresences?.length !== 0 ? (
+						<CardsDashboard datas={todayPresences} />
 					) : (
-						<CardsDashboard datas={dummyTodayPresents} />
+						<CardsDashboard datas={dummyTodayPresences} />
 					)}
 				</div>
 
@@ -53,7 +99,7 @@ export default function Dashboard() {
 							id="prestasi"
 							className="bg-color1 rounded-2xl hover:shadow hover:shadow-slate-500"
 						>
-							{prestasis.length !== 0 ? (
+							{apiPrestasis?.length !== 0 ? (
 								<TableAchievement
 									datas={prestasis}
 									title="Top 10 Siswa Berprestasi"
@@ -75,7 +121,7 @@ export default function Dashboard() {
 
 					<div className="w-1/2 pt-2 pb-6 pl-3 pr-6">
 						<div className="bg-color1 rounded-2xl hover:shadow hover:shadow-slate-500">
-							{pelanggars.length !== 0 ? (
+							{apiPelanggars?.length !== 0 ? (
 								<TableAchievement
 									datas={pelanggars}
 									title="Top 10 Siswa Pelanggar"

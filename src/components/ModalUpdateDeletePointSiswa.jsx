@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
 import dayjs from "dayjs";
 import { BsTrash } from "react-icons/bs";
 import { FiEdit } from "react-icons/fi";
@@ -17,6 +18,17 @@ import {
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+
+import {
+	deletePelanggars,
+	getPelanggars,
+	updatePelanggars,
+} from "../lib/stateManager/reducers/pelanggarSlice";
+import {
+	deletePrestasis,
+	getPrestasis,
+	updatePrestasis,
+} from "../lib/stateManager/reducers/prestasiSlice";
 
 const style = {
 	position: "absolute",
@@ -39,6 +51,7 @@ export default function ModalUpdateDeletePointSiswa({
 	type,
 	siswa_id,
 }) {
+	const dispatch = useDispatch();
 	const [tanggal, setTanggal] = useState(dayjs(datas.tanggal, "D-M-YYYY"));
 
 	const [request, setRequest] = useState({
@@ -75,6 +88,32 @@ export default function ModalUpdateDeletePointSiswa({
 			...request,
 			[e.target.name]: e.target.value,
 		});
+	};
+
+	const handleDelete = async (e) => {
+		e.preventDefault();
+		console.log(e);
+		// if (type === "list_pelanggaran_id") {
+		// 	await dispatch(deletePelanggars(e));
+		// 	dispatch(getPelanggars());
+		// } else if (type === "list_penghargaan_id") {
+		// 	await dispatch(deletePrestasis(request));
+		// 	dispatch(getPrestasis());
+		// }
+		setOpen(false);
+	};
+
+	const handleSave = async (e) => {
+		e.preventDefault();
+		console.log(request);
+		if (type === "list_pelanggaran_id") {
+			await dispatch(updatePelanggars(request));
+			dispatch(getPelanggars());
+		} else if (type === "list_penghargaan_id") {
+			await dispatch(updatePrestasis(request));
+			dispatch(getPrestasis());
+		}
+		setOpen(false);
 	};
 	console.log(datas);
 	console.log(request);
@@ -163,7 +202,11 @@ export default function ModalUpdateDeletePointSiswa({
 							</div>
 						</Typography>
 						<div className="button-action mt-5 flex justify-around">
-							<IconButton color="error" aria-label="delete">
+							<IconButton
+								color="error"
+								aria-label="delete"
+								onClick={handleDelete}
+							>
 								<BsTrash />
 							</IconButton>
 
@@ -179,7 +222,11 @@ export default function ModalUpdateDeletePointSiswa({
 								<MdOutlineCancel />
 							</IconButton>
 
-							<IconButton color="success" aria-label="update">
+							<IconButton
+								color="success"
+								aria-label="update"
+								onClick={handleSave}
+							>
 								<FiEdit />
 							</IconButton>
 						</div>

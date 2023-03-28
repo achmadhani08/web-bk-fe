@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Tooltip from "@mui/material/Tooltip";
+import dayjs from "dayjs";
 
 import ModalAddPointSiswa from "./ModalAddPointSiswa";
 import ModalUpdateDeletePointSiswa from "./ModalUpdateDeletePointSiswa";
@@ -72,7 +73,9 @@ export default function TablePenghargaanSiswa({
 									<td
 										className={`py-1 border-t-2 border-r-2 ${borderColor} w-[61.7%]`}
 									>
-										{data.tanggal}
+										{data.tanggal
+											? dayjs(data?.tanggal).format("D-M-YYYY")
+											: null}
 									</td>
 									<Tooltip title={data.desc} placement="left">
 										<td

@@ -4,7 +4,7 @@ export const dataRekapanAbsensiBulan = [
 		absen: "1",
 		nis: "11057",
 		nama: "ABDUSALAM JUNIANTO",
-		gender: "Laki-Laki",
+		jk: "Laki-Laki",
 		kelas: "10 RPL",
 		days: [
 			{
@@ -231,7 +231,7 @@ export const dataRekapanAbsensiBulan = [
 		absen: "2",
 		nis: "11058",
 		nama: "ABIYYULLAH AYYASSY",
-		gender: "Laki-Laki",
+		jk: "Laki-Laki",
 		kelas: "10 RPL",
 		days: [
 			{
@@ -458,14 +458,14 @@ export const dataRekapanAbsensiBulan = [
 		absen: "3",
 		nis: "11059",
 		nama: "ADITYA FIRMANSYAH",
-		gender: "Laki-Laki",
+		jk: "Laki-Laki",
 		kelas: "10 RPL",
 		days: [
 			{
 				H: false,
 				I: false,
 				S: false,
-				T: true,
+				T: false,
 				A: false,
 			},
 			{
@@ -685,7 +685,7 @@ export const dataRekapanAbsensiBulan = [
 		absen: "4",
 		nis: "11060",
 		nama: "ADITYA RIFA'I",
-		gender: "Laki-Laki",
+		jk: "Laki-Laki",
 		kelas: "10 RPL",
 		days: [
 			{
@@ -912,7 +912,7 @@ export const dataRekapanAbsensiBulan = [
 		absen: "5",
 		nis: "11061",
 		nama: "ANDITO BINTANG SOESENO",
-		gender: "Laki-Laki",
+		jk: "Laki-Laki",
 		kelas: "10 RPL",
 		days: [
 			{
@@ -1139,7 +1139,7 @@ export const dataRekapanAbsensiBulan = [
 		absen: "6",
 		nis: "11062",
 		nama: "ANDREAS MARULI HUTAJULU",
-		gender: "Laki-Laki",
+		jk: "Laki-Laki",
 		kelas: "10 RPL",
 		days: [
 			{
@@ -1366,7 +1366,7 @@ export const dataRekapanAbsensiBulan = [
 		absen: "7",
 		nis: "11063",
 		nama: "AYUNI PUTRI CHIKA CECILIA",
-		gender: "Perempuan",
+		jk: "Perempuan",
 		kelas: "10 RPL",
 		days: [
 			{
@@ -1593,7 +1593,7 @@ export const dataRekapanAbsensiBulan = [
 		absen: "8",
 		nis: "11064",
 		nama: "BELLA SEPTIANINGRUM",
-		gender: "Perempuan",
+		jk: "Perempuan",
 		kelas: "10 RPL",
 		days: [
 			{
@@ -1820,7 +1820,7 @@ export const dataRekapanAbsensiBulan = [
 		absen: "9",
 		nis: "11065",
 		nama: "FRANKLIN COLLIN TAMBOTO",
-		gender: "Laki-Laki",
+		jk: "Laki-Laki",
 		kelas: "10 RPL",
 		days: [
 			{
@@ -2047,7 +2047,7 @@ export const dataRekapanAbsensiBulan = [
 		absen: "10",
 		nis: "11066",
 		nama: "KELVIN FEBRIAN GO",
-		gender: "Laki-Laki",
+		jk: "Laki-Laki",
 		kelas: "10 RPL",
 		days: [
 			{
@@ -2274,7 +2274,7 @@ export const dataRekapanAbsensiBulan = [
 		absen: "11",
 		nis: "11067",
 		nama: "MEGA TRI HANDAYANI",
-		gender: "Perempuan",
+		jk: "Perempuan",
 		kelas: "10 RPL",
 		days: [
 			{
@@ -2501,7 +2501,7 @@ export const dataRekapanAbsensiBulan = [
 		absen: "12",
 		nis: "11068",
 		nama: "MICHAEL FERGUSON",
-		gender: "Laki-Laki",
+		jk: "Laki-Laki",
 		kelas: "10 RPL",
 		days: [
 			{
@@ -2728,7 +2728,7 @@ export const dataRekapanAbsensiBulan = [
 		absen: "13",
 		nis: "11069",
 		nama: "MOCHAMAD RIZKY",
-		gender: "Laki-Laki",
+		jk: "Laki-Laki",
 		kelas: "10 RPL",
 		days: [
 			{
@@ -2955,7 +2955,7 @@ export const dataRekapanAbsensiBulan = [
 		absen: "14",
 		nis: "11070",
 		nama: "MOH. IRFAN SUDRAJAT",
-		gender: "Laki-Laki",
+		jk: "Laki-Laki",
 		kelas: "10 RPL",
 		days: [
 			{
@@ -3182,7 +3182,7 @@ export const dataRekapanAbsensiBulan = [
 		absen: "15",
 		nis: "11071",
 		nama: "MOHAMAD FERDIANSYAH",
-		gender: "Laki-Laki",
+		jk: "Laki-Laki",
 		kelas: "10 RPL",
 		days: [
 			{
@@ -3409,7 +3409,7 @@ export const dataRekapanAbsensiBulan = [
 		absen: "16",
 		nis: "11072",
 		nama: "MUHAMMAD ALWIANSYAH",
-		gender: "Laki-Laki",
+		jk: "Laki-Laki",
 		kelas: "10 RPL",
 		days: [
 			{
@@ -3636,7 +3636,7 @@ export const dataRekapanAbsensiBulan = [
 		absen: "17",
 		nis: "11073",
 		nama: "MUHAMMAD BARIQ DHARMAWAN",
-		gender: "Laki-Laki",
+		jk: "Laki-Laki",
 		kelas: "10 RPL",
 		days: [
 			{
@@ -3863,7 +3863,7 @@ export const dataRekapanAbsensiBulan = [
 		absen: "18",
 		nis: "11074",
 		nama: "MUHAMMAD BHAGUS FIRMANSYAH",
-		gender: "Laki-Laki",
+		jk: "Laki-Laki",
 		kelas: "10 RPL",
 		days: [
 			{
@@ -4090,7 +4090,7 @@ export const dataRekapanAbsensiBulan = [
 		absen: "19",
 		nis: "11075",
 		nama: "MUHAMMAD FADILLAH",
-		gender: "Laki-Laki",
+		jk: "Laki-Laki",
 		kelas: "10 RPL",
 		days: [
 			{
@@ -4317,7 +4317,7 @@ export const dataRekapanAbsensiBulan = [
 		absen: "20",
 		nis: "11076",
 		nama: "MUHAMMAD FIKRI HADIAN",
-		gender: "Laki-Laki",
+		jk: "Laki-Laki",
 		kelas: "10 RPL",
 		days: [
 			{
@@ -4544,7 +4544,7 @@ export const dataRekapanAbsensiBulan = [
 		absen: "21",
 		nis: "11077",
 		nama: "MUHAMMAD HUSNAL FALAH",
-		gender: "Laki-Laki",
+		jk: "Laki-Laki",
 		kelas: "10 RPL",
 		days: [
 			{
@@ -4771,7 +4771,7 @@ export const dataRekapanAbsensiBulan = [
 		absen: "22",
 		nis: "11078",
 		nama: "MUHAMMAD ISA GOUTAMA",
-		gender: "Laki-Laki",
+		jk: "Laki-Laki",
 		kelas: "10 RPL",
 		days: [
 			{
@@ -4998,7 +4998,7 @@ export const dataRekapanAbsensiBulan = [
 		absen: "23",
 		nis: "11079",
 		nama: "MUHAMMAD NABIL AKBAR",
-		gender: "Laki-Laki",
+		jk: "Laki-Laki",
 		kelas: "10 RPL",
 		days: [
 			{
@@ -5225,7 +5225,7 @@ export const dataRekapanAbsensiBulan = [
 		absen: "24",
 		nis: "11080",
 		nama: "OKI ALIF PRATAMA",
-		gender: "Laki-Laki",
+		jk: "Laki-Laki",
 		kelas: "10 RPL",
 		days: [
 			{
@@ -5452,7 +5452,7 @@ export const dataRekapanAbsensiBulan = [
 		absen: "25",
 		nis: "11081",
 		nama: "RAIHAN ANUBHAWA EKAPUTRA",
-		gender: "Laki-Laki",
+		jk: "Laki-Laki",
 		kelas: "10 RPL",
 		days: [
 			{
@@ -5679,7 +5679,7 @@ export const dataRekapanAbsensiBulan = [
 		absen: "26",
 		nis: "11082",
 		nama: "RENDI FIRMANSYAH",
-		gender: "Laki-Laki",
+		jk: "Laki-Laki",
 		kelas: "10 RPL",
 		days: [
 			{
@@ -5906,7 +5906,7 @@ export const dataRekapanAbsensiBulan = [
 		absen: "27",
 		nis: "11083",
 		nama: "SENDI DIAN HADIWIJAYA",
-		gender: "Laki-Laki",
+		jk: "Laki-Laki",
 		kelas: "10 RPL",
 		days: [
 			{
@@ -6133,7 +6133,7 @@ export const dataRekapanAbsensiBulan = [
 		absen: "28",
 		nis: "11084",
 		nama: "SHABRINA FITRI NINGTYAS",
-		gender: "Perempuan",
+		jk: "Perempuan",
 		kelas: "10 RPL",
 		days: [
 			{
@@ -6359,8 +6359,8 @@ export const dataRekapanAbsensiBulan = [
 		id: "29",
 		absen: "29",
 		nis: "11085",
-		nama: "SOPHIA FIRDAUSYA MUSLIMAH",
-		gender: "Perempuan",
+		nama: "SOPHIA FIRDAUSYA MUSLIMAH SYAHAR BANU",
+		jk: "Perempuan",
 		kelas: "10 RPL",
 		days: [
 			{
@@ -6587,7 +6587,7 @@ export const dataRekapanAbsensiBulan = [
 		absen: "30",
 		nis: "11086",
 		nama: "SUNSUGOS",
-		gender: "Laki-Laki",
+		jk: "Laki-Laki",
 		kelas: "10 RPL",
 		days: [
 			{
@@ -6814,7 +6814,7 @@ export const dataRekapanAbsensiBulan = [
 		absen: "31",
 		nis: "11087",
 		nama: "VEROS MUHAMED",
-		gender: "Laki-Laki",
+		jk: "Laki-Laki",
 		kelas: "10 RPL",
 		days: [
 			{
@@ -7041,7 +7041,7 @@ export const dataRekapanAbsensiBulan = [
 		absen: "32",
 		nis: "11088",
 		nama: "VIERRY RUSDIYANTO",
-		gender: "Laki-Laki",
+		jk: "Laki-Laki",
 		kelas: "10 RPL",
 		days: [
 			{

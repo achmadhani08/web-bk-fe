@@ -26,7 +26,7 @@ export default function Filter({ request, setRequest }) {
 			value: "OTKP1",
 		},
 		{
-			value: "OTKP 2",
+			value: "OTKP2",
 		},
 		{ value: "RPL" },
 	];

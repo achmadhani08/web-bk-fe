@@ -1,16 +1,15 @@
 import { FaRegFilePdf } from "react-icons/fa";
+import ModalUpdateAbsensi from "../../components/ModalUpdateAbsensi";
 
 import { dataRekapanAbsensiBulan } from "../../data/dummy/dummyRekapAbsen";
 
-export const TableRekapAbsenBulan = ({
+export const TableRekapAbsenBulanAdmin = ({
 	datas,
 	title,
 	icon,
 	borderColor,
 	hoverBg,
 }) => {
-	// console.log(datas[0].days);
-
 	let loopingData = (data) => {
 		if (data.H) {
 			return "H";
@@ -26,6 +25,7 @@ export const TableRekapAbsenBulan = ({
 			return "-";
 		}
 	};
+
 	return (
 		<>
 			<div className="w-full" id="table-bulan">
@@ -105,12 +105,20 @@ export const TableRekapAbsenBulan = ({
 								>
 									{data.jk}
 								</td>
-								{data?.days.map((data, index) => (
+								{data?.days.map((day, index) => (
 									<td
 										key={index}
 										className={`py-1 cursor-default border-t-2 border-x-2 ${borderColor}`}
 									>
-										{loopingData(data)}
+										<ModalUpdateAbsensi
+											datas={day}
+											nis={data.nis}
+											// tanggal={day.tanggal}
+											title="Edit Data Absensi"
+											key={index}
+											label={loopingData(day)}
+										/>
+										{/* {loopingData(day)} */}
 									</td>
 								))}
 							</tr>

@@ -16,12 +16,63 @@ export const getPelanggars = createAsyncThunk(
 // let token = document
 // 	.querySelector(`meta[name=”csrf-token”]`)
 // 	.getAttribute(`content`);
+
 export const newPelanggars = createAsyncThunk(
 	"pelanggars/postPelanggars",
 	async ({ request }) => {
 		const response = await axios.post(
 			"http://127.0.0.1:8000/api/tambah-pelanggar",
 			{ request },
+			{
+				headers: {
+					"Content-Type": "application/x-www-form-urlencoded",
+					Accept: "application/x-www-form-urlencoded, text-plain, */*",
+					"X-Requested-With": "XMLHttpRequest",
+					// "X-CSRF-TOKEN": token,
+				},
+			}
+			// {
+			// 	headers: {
+			// 		"Content-Type": "application/x-www-form-urlencoded",
+			// 	},
+			// }
+		); // Laravel API
+		console.log(request, "Hit API");
+		return response.data;
+	}
+);
+
+export const updatePelanggars = createAsyncThunk(
+	"pelanggars/updatePelanggars",
+	async (request) => {
+		const response = await axios.put(
+			"http://127.0.0.1:8000/api/edit-pelanggar",
+			request,
+			{
+				headers: {
+					"Content-Type": "application/x-www-form-urlencoded",
+					Accept: "application/x-www-form-urlencoded, text-plain, */*",
+					"X-Requested-With": "XMLHttpRequest",
+					// "X-CSRF-TOKEN": token,
+				},
+			}
+			// {
+			// 	headers: {
+			// 		"Content-Type": "application/x-www-form-urlencoded",
+			// 	},
+			// }
+		); // Laravel API
+		console.log(request, "Hit API");
+		return response.data;
+	}
+);
+
+export const deletePelanggars = createAsyncThunk(
+	"pelanggars/deletePelanggars",
+	async (request) => {
+		const response = await axios.delete(
+			"http://127.0.0.1:8000/api/hapus-pelanggar",
+			request,
 			{
 				headers: {
 					"Content-Type": "application/x-www-form-urlencoded",
@@ -54,6 +105,12 @@ const pelanggarSlice = createSlice({
 		},
 		[newPelanggars.fulfilled]: (state, action) => {
 			pelanggarEntity.addOne(state, action.payload);
+		},
+		[updatePelanggars.fulfilled]: (state, action) => {
+			pelanggarEntity.updateOne(state, action.payload);
+		},
+		[deletePelanggars.fulfilled]: (state, action) => {
+			pelanggarEntity.removeOne(state, action.payload);
 		},
 	},
 });

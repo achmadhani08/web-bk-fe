@@ -22,6 +22,24 @@ export default function Filter({
 		...new Map(kelasJurusans.map((item) => [item.jurusan, item])).values(),
 	];
 
+	let addDash = function (str) {
+		let chars = str.split("");
+		chars.splice(chars.length - 1, 0, "-");
+		return chars.join("");
+	};
+
+	let loopingMajor = (data) => {
+		let result = [];
+		data.forEach((d) => {
+			if (d.jurusan !== "RPL") {
+				return result.push(addDash(d.jurusan));
+			}
+			return result.push(d.jurusan);
+		});
+	};
+
+	let newDataMajor = loopingMajor(uniqueMajor);
+
 	// function containsNumbers(str) {
 	// 	return /\d/.test(str);
 	// }
@@ -82,21 +100,38 @@ export default function Filter({
 				</Select>
 			</FormControl>
 
-			{/* Select Tahun */}
-			<TextField
-				required
-				id="input-tahun-absensiperbulan"
-				value={request.tahun}
-				onChange={(e) =>
-					setRequest({
-						...request,
-						tahun: e.target.value,
-					})
-				}
-				label="Tahun Ajaran"
-				variant="standard"
-				helperText="contoh: 2021-2022"
-			/>
+			{/* Input Tahun */}
+			{radioButton !== "tahun" ? (
+				<TextField
+					required
+					id="input-tahun-absensiperbulan"
+					value={request.tahun}
+					onChange={(e) =>
+						setRequest({
+							...request,
+							tahun: e.target.value,
+						})
+					}
+					helperText="contoh: 2022-2023"
+					label="Tahun Ajaran"
+					variant="standard"
+				/>
+			) : (
+				<TextField
+					required
+					id="input-tahun-absensiperbulan"
+					value={request.tahun}
+					onChange={(e) =>
+						setRequest({
+							...request,
+							tahun: e.target.value,
+						})
+					}
+					helperText="contoh: 2022"
+					label="Tahun Ajaran"
+					variant="standard"
+				/>
+			)}
 
 			{/* RadioButton */}
 			<ToggleButtonGroup

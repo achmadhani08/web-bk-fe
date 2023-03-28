@@ -23,8 +23,64 @@ export const newPrestasis = createAsyncThunk(
 			{
 				headers: {
 					"Content-Type": "application/x-www-form-urlencoded",
+					Accept: "application/x-www-form-urlencoded, text-plain, */*",
+					"X-Requested-With": "XMLHttpRequest",
+					// "X-CSRF-TOKEN": token,
 				},
 			}
+			// {
+			// 	headers: {
+			// 		"Content-Type": "application/x-www-form-urlencoded",
+			// 	},
+			// }
+		); // Laravel API
+		return response.data;
+	}
+);
+
+export const updatePrestasis = createAsyncThunk(
+	"prestasis/updatePrestasis",
+	async (request) => {
+		const response = await axios.put(
+			"http://127.0.0.1:8000/api/edit-prestasi",
+			request,
+			{
+				headers: {
+					"Content-Type": "application/x-www-form-urlencoded",
+					Accept: "application/x-www-form-urlencoded, text-plain, */*",
+					"X-Requested-With": "XMLHttpRequest",
+					// "X-CSRF-TOKEN": token,
+				},
+			}
+			// {
+			// 	headers: {
+			// 		"Content-Type": "application/x-www-form-urlencoded",
+			// 	},
+			// }
+		); // Laravel API
+		return response.data;
+	}
+);
+
+export const deletePrestasis = createAsyncThunk(
+	"prestasis/deletePrestasis",
+	async (request) => {
+		const response = await axios.put(
+			"http://127.0.0.1:8000/api/hapus-prestasi",
+			request,
+			{
+				headers: {
+					"Content-Type": "application/x-www-form-urlencoded",
+					Accept: "application/x-www-form-urlencoded, text-plain, */*",
+					"X-Requested-With": "XMLHttpRequest",
+					// "X-CSRF-TOKEN": token,
+				},
+			}
+			// {
+			// 	headers: {
+			// 		"Content-Type": "application/x-www-form-urlencoded",
+			// 	},
+			// }
 		); // Laravel API
 		return response.data;
 	}
@@ -43,6 +99,12 @@ const prestasiSlice = createSlice({
 		},
 		[newPrestasis.fulfilled]: (state, action) => {
 			prestasiEntity.addOne(state, action.payload);
+		},
+		[updatePrestasis.fulfilled]: (state, action) => {
+			prestasiEntity.updateOne(state, action.payload);
+		},
+		[deletePrestasis.fulfilled]: (state, action) => {
+			prestasiEntity.removeOne(state, action.payload);
 		},
 	},
 });

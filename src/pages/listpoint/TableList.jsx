@@ -31,7 +31,7 @@ export default function TableList({ datas, title, borderColor, hoverBg }) {
 							{datas?.map((data, index) => (
 								<tr
 									className={`text-center flex w-full hover:${hoverBg} text-base font-medium`}
-									key={data.id}
+									key={index}
 								>
 									<td
 										className={`py-1 border-t-2 border-x-2  ${borderColor} w-[10.3%]`}
@@ -73,7 +73,7 @@ export default function TableList({ datas, title, borderColor, hoverBg }) {
 							{datas?.map((data, index) => (
 								<tr
 									className={`text-center flex w-full hover:${hoverBg} text-base font-medium`}
-									key={data.id}
+									key={index}
 								>
 									<td
 										className={`py-1 border-t-2 border-x-2 ${borderColor} w-[10.3%]`}

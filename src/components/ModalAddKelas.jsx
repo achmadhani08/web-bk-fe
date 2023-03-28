@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import dayjs from "dayjs";
 import { BsSave } from "react-icons/bs";
 import { MdOutlineCancel } from "react-icons/md";
 import {
@@ -14,19 +13,12 @@ import {
 	Typography,
 	Modal,
 } from "@mui/material";
-import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
-import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 
+import { classData } from "../data/fixData";
 import {
-	getPelanggars,
-	newPelanggars,
-} from "../lib/stateManager/reducers/pelanggarSlice";
-
-import {
-	getPrestasis,
-	newPrestasis,
-} from "../lib/stateManager/reducers/prestasiSlice";
+	getKelasJurusans,
+	newKelasJurusans,
+} from "../lib/stateManager/reducers/kelasJurusanSlice";
 
 const style = {
 	position: "absolute",
@@ -41,54 +33,39 @@ const style = {
 	p: 4,
 };
 
-export default function ModalAddPointSiswa({
-	listDatas,
-	title,
-	type,
-	siswa_id,
-}) {
+export default function ModalAddKelas({ title }) {
 	const dispatch = useDispatch();
 	const [open, setOpen] = useState(false);
-	let now = new dayjs();
-	let formatDate = (data) => {
-		new dayjs(data).format("DD-MM-YYYY");
-	};
-	const [tanggal, setTanggal] = useState(now);
 
 	const [request, setRequest] = useState({
-		siswa_id: siswa_id,
-		[type]: 1,
-		tanggal: dayjs(tanggal).format("DD-MM-YYYY"),
-		desc: "",
-		point: "",
+		kelas: "",
+		jurusan: "",
 	});
-	const handleClose = () => {
-		setTanggal(dayjs(now));
+	const [jurusan, setJurusan] = useState({
+		name: "",
+		many: "",
+	});
+
+	useEffect(() => {
 		setRequest({
 			...request,
-			siswa_id: siswa_id,
-			[type]: 1,
-			tanggal: tanggal,
-			desc: "",
-			point: "",
+			jurusan: `${jurusan.name}${jurusan.many}`,
+		});
+	}, [jurusan]);
+
+	const handleClose = () => {
+		setRequest({
+			...request,
+			kelas: "",
+			jurusan: "",
 		});
 		setOpen(false);
 	};
 	const handleSave = async (e) => {
 		e.preventDefault();
-		await setRequest({
-			...request,
-			tanggal: formatDate(request.tanggal),
-		});
-		if (type === "list_pelanggaran_id") {
-			await dispatch(newPelanggars(request));
-			dispatch(getPelanggars());
-			console.log(request);
-		} else if (type === "list_penghargaan_id") {
-			await dispatch(newPrestasis(request));
-			dispatch(getPrestasis());
-			console.log(request);
-		}
+
+		await dispatch(newKelasJurusans(request));
+		dispatch(getKelasJurusans());
 		setOpen(false);
 	};
 
@@ -101,8 +78,6 @@ export default function ModalAddPointSiswa({
 		});
 	};
 
-	console.log(tanggal);
-	console.log(listDatas);
 	return (
 		<>
 			<div
@@ -135,66 +110,65 @@ export default function ModalAddPointSiswa({
 					</Typography>
 					<Typography id="modal-modal-description" sx={{ mt: 2 }}>
 						<div className="flex flex-col gap-4">
-							<LocalizationProvider
-								className="w-[80%]"
-								dateAdapter={AdapterDayjs}
-							>
-								<DatePicker
-									disableFuture
-									label="Tanggal"
-									inputFormat="DD-MM-YYYY"
-									value={tanggal}
-									onChange={(newValue) => {
-										setTanggal(newValue);
-									}}
-									renderInput={(params) => <TextField {...params} />}
-								/>
-							</LocalizationProvider>
 							<div className="flex justify-around">
-								<FormControl required className="w-[40%]">
-									<InputLabel id="select-label">Jenis</InputLabel>
+								<FormControl required className="w-[50%]">
+									<InputLabel id="select-label">Kelas</InputLabel>
 									<Select
 										labelId="select-label"
 										id="select"
-										value={request?.[type]}
-										label="Jenis"
-										name={type}
+										value={request.kelas}
+										label="Kelas"
+										name="kelas"
 										onChange={handleChange}
 										MenuProps={{ PaperProps: { sx: { maxHeight: 200 } } }}
 									>
-										{listDatas?.map((e, index) => (
-											<MenuItem key={index} value={e.id}>
-												{e.id}
+										{classData?.map((e, index) => (
+											<MenuItem key={index} value={e.value}>
+												{e.value}
 											</MenuItem>
 										))}
 									</Select>
 								</FormControl>
-								<TextField
-									className="w-[40%]"
-									id="outlined-basic"
-									readOnly
-									label="Point"
-									variant="outlined"
-									onChange={handleChange}
-									value={listDatas[request?.[type]]?.point}
-								/>
 							</div>
 
-							<TextField
-								className="w-full"
-								id="outlined-basic"
-								readOnly
-								label="Keterangan"
-								multiline
-								rows={3}
-								// maxRows={4}
-								variant="outlined"
-								onChange={handleChange}
-								value={
-									listDatas[request?.[type]]?.penghargaan ||
-									listDatas[request?.[type]]?.pelanggaran
-								}
-							/>
+							<div className="flex gap-5 justify-center">
+								<TextField
+									className="w-1/2"
+									id="outlined-basic"
+									label="Jurusan (Singkat)"
+									helperText="Contoh AKL, BDP, OTKP, RPL"
+									required
+									rows={1}
+									name="jurusan"
+									// maxRows={4}
+									variant="outlined"
+									onChange={(e) => {
+										setJurusan({
+											...jurusan,
+											name: e.target.value,
+										});
+									}}
+									value={jurusan.name}
+								/>
+
+								<TextField
+									className="w-1/2"
+									inputProps={{ inputMode: "numeric", pattern: "[0-9]*" }}
+									id="outlined-basic"
+									label="Kelas ke?"
+									helperText="Contoh 1, 2 (AKL 1, AKL 2) | Boleh Kosong"
+									rows={1}
+									name="banyak"
+									variant="outlined"
+									onChange={(e) => {
+										setJurusan({
+											...jurusan,
+											many: e.target.value,
+										});
+									}}
+									value={jurusan.many}
+								/>
+							</div>
 						</div>
 					</Typography>
 					<div className="button-action mt-5 flex justify-center">

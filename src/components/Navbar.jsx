@@ -1,9 +1,31 @@
+import { useContext } from "react";
 import { NavLink } from "react-router-dom";
+import { IoSettingsSharp } from "react-icons/io5";
+import "../assets/css/navbar.css";
+import axios from "axios";
+import Cookies from "universal-cookie";
 
 import logosmk10 from "../assets/image/logo-10.png";
 import logobk from "../assets/image/logo-bk.png";
+import { UserContext } from "../App";
 
 export default function Navbar() {
+	const cookies = new Cookies();
+	const [authenticated, setAuthenticated] = useContext(UserContext);
+
+	const handleLogout = async () => {
+		await axios.post("http://127.0.0.1:8000/api/logout", {
+			headers: {
+				Authorization: `Bearer ${cookies.get("Authorization")}`,
+			},
+		});
+
+		setAuthenticated({
+			name: null,
+			email: null,
+		});
+	};
+
 	return (
 		<div className="navbar bg-color4 sticky top-0 z-20">
 			<div className="navbar-start">
@@ -30,38 +52,35 @@ export default function Navbar() {
 					>
 						<li>
 							<NavLink
-								className="font-semibold active:bg-gray-300 text-black bg-gray-200"
-								to="/"
+								className="focus:bg-color3 focus:text-black"
+								to="/dashboard"
 							>
 								Dashboard
 							</NavLink>
-							{/* <a aria-current="page"></a> */}
 						</li>
 						<li>
-							<NavLink className="" to="/list-point">
+							<NavLink
+								className="focus:bg-color3 focus:text-black"
+								to="/list-point"
+							>
 								List Point
 							</NavLink>
-							{/* <a className="" href="/list-point">
-								List Point
-							</a> */}
 						</li>
 						<li>
-							<NavLink className="" to="/rekapan-absensi">
+							<NavLink
+								className="focus:bg-color3 focus:text-black"
+								to="/rekapan-absensi"
+							>
 								Rekapan Absensi
 							</NavLink>
-							{/* <a className="" href="/rekapan-absensi"></a> */}
 						</li>
 						<li>
-							<NavLink className="" to="/rekapan-point">
+							<NavLink
+								className="focus:bg-color3 focus:text-black"
+								to="/rekapan-point"
+							>
 								Rekapan Point Pelanggaran
 							</NavLink>
-							{/* <a
-								aria-current="page"
-								className="font-semibold active:bg-gray-300 text-black bg-gray-200"
-								href="/rekapan-point"
-							>
-								Rekapan
-							</a> */}
 						</li>
 					</ul>
 				</div>
@@ -74,32 +93,50 @@ export default function Navbar() {
 					<a aria-current="page" href="/">
 						<img src={logobk} alt="logo" style={{ width: "4.5rem" }} />
 					</a>
-					{/* <NavLink to="https://smkn10jakarta.sch.id/" target="_blank">
-						<img src={logosmk10} alt="logo" style="width: 4rem" />
-					</NavLink>
-					<NavLink to="/">
-						<img src={logobk} alt="logo" style="width: 4.5rem" />
-					</NavLink> */}
 				</div>
 			</div>
 			<div className="navbar-end">
 				<div className="flex">
 					<div className="dropdown dropdown-end">
-						<label tabIndex="0" className="btn btn-ghost btn-circle avatar">
-							<div className="w-10 rounded-full">
-								<img src="https://placeimg.com/80/80/people" alt="avatar" />
-							</div>
+						<label tabIndex="0" className="btn btn-ghost btn-circle">
+							<IoSettingsSharp className="h-5 w-5 text-white" />
 						</label>
 						<ul
 							tabIndex="0"
-							className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-white text-gray-700 rounded-box w-52"
+							className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-color1 text-gray-700 rounded-box w-52"
 						>
-							<li>
-								<a href="/profile">Profile</a>
-							</li>
-							<li>
-								<p>Logout</p>
-							</li>
+							{authenticated.name !== null ? (
+								<li>
+									<p>Login</p>
+								</li>
+							) : (
+								<>
+									<li>
+										<NavLink
+											className="focus:bg-color3 focus:text-black"
+											to="/data-kelas"
+										>
+											Data Kelas
+										</NavLink>
+									</li>
+									<li>
+										<NavLink
+											className="focus:bg-color3 focus:text-black"
+											to="/data-siswa"
+										>
+											Data Siswa
+										</NavLink>
+									</li>
+									<>
+										<li>
+											<p>Register Admin</p>
+										</li>
+									</>
+									<li onClick={handleLogout}>
+										<p>Logout</p>
+									</li>
+								</>
+							)}
 						</ul>
 					</div>
 				</div>

@@ -1,0 +1,5 @@
+.menu :where(li:not(.menu-title):not(:empty)) > :where(:not(ul).active) {
+	background-color: #aebdca !important;
+	color: #000000 !important;
+	font-weight: 500;
+}
