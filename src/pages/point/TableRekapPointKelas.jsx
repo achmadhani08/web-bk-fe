@@ -3,6 +3,8 @@ import { FaRegFilePdf } from "react-icons/fa";
 export default function TableRekapPointKelas({
 	datas,
 	title,
+	request,
+	setRequest,
 	borderColor,
 	hoverBg,
 }) {
@@ -122,6 +124,12 @@ export default function TableRekapPointKelas({
 							<tr
 								className={`text-center hover:${hoverBg} text-base font-medium`}
 								key={data.id}
+								onClick={() =>
+									setRequest({
+										...request,
+										nis: data.nis,
+									})
+								}
 							>
 								<td className={`py-1 border-t-2 border-x-2  ${borderColor}`}>
 									{index + 1}

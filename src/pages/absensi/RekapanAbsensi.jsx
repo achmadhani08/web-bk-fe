@@ -34,7 +34,7 @@ import {
 import { UserContext } from "../../App";
 
 export default function RekapanAbsensi() {
-	const [authenticated, setAuthenticated] = useContext(UserContext);
+	const { authenticated } = useContext(UserContext);
 	const dispatch = useDispatch();
 	const kelasJurusans = useSelector(kelasJurusanSelectors.selectAll);
 	const monthPresences = useSelector(monthPresencesSelectors.selectAll);
@@ -63,11 +63,13 @@ export default function RekapanAbsensi() {
 	const [request, setRequest] = useState({
 		kelas: 12,
 		jurusan: "RPL",
+		// bulan: "november",
 		bulan: bulan,
 		semester: "",
 		tahun: "2022-2023",
 	});
 
+	console.log(bulan);
 	useEffect(() => {
 		dispatch(getKelasJurusans());
 		// dispatch(getMonthPresences(request));
@@ -158,7 +160,7 @@ export default function RekapanAbsensi() {
 
 	const showMonthPresences = (param) => {
 		switch (param) {
-			case radioButton === "bulan" && authenticated.name !== null:
+			case radioButton === "bulan" && authenticated !== null:
 				return (
 					<TableRekapAbsenBulanAdmin
 						datas={dataRekapanAbsensiBulan}
@@ -170,7 +172,7 @@ export default function RekapanAbsensi() {
 					/>
 				);
 				break;
-			case radioButton === "bulan" && authenticated.name === null:
+			case radioButton === "bulan" && authenticated === null:
 				return (
 					<TableRekapAbsenBulan
 						datas={dataRekapanAbsensiBulan}
@@ -185,6 +187,39 @@ export default function RekapanAbsensi() {
 				return null;
 				break;
 		}
+	};
+
+	let showMonth = (isAuthenticated) => {
+		if (isAuthenticated !== null) {
+			return (
+				<TableRekapAbsenBulan
+					datas={dataRekapanAbsensiBulan}
+					title={`Admin Rekapan Absensi ${request.kelas} ${
+						request.jurusan
+					} Bulan ${capitalize(request.bulan)} ${request.tahun}`}
+					borderColor="border-color4"
+					hoverBg="bg-color2"
+				/>
+				// <TableRekapAbsenBulanAdmin
+				// 	datas={dataRekapanAbsensiBulan}
+				// 	title={`Rekapan Absensi ${request.kelas} ${
+				// 		request.jurusan
+				// 	} Bulan ${capitalize(request.bulan)} ${request.tahun}`}
+				// 	borderColor="border-color4"
+				// 	hoverBg="bg-color2"
+				// />
+			);
+		}
+		return (
+			<TableRekapAbsenBulan
+				datas={dataRekapanAbsensiBulan}
+				title={`Rekapan Absensi ${request.kelas} ${
+					request.jurusan
+				} Bulan ${capitalize(request.bulan)} ${request.tahun}`}
+				borderColor="border-color4"
+				hoverBg="bg-color2"
+			/>
+		);
 	};
 
 	return (
@@ -202,9 +237,29 @@ export default function RekapanAbsensi() {
 			</div>
 
 			<div className="w-full py-8 px-6">
-				{(() => {
+				<h2 className="text-red-500 font-bold">
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores
+					iste, voluptate quam quos architecto magni. Labore atque quod debitis
+					placeat illo non dicta eligendi corporis sapiente cumque
+					necessitatibus amet odit delectus reprehenderit dolore accusamus,
+					laborum maxime nemo explicabo? Laborum, iste?
+				</h2>
+				{/* {radioButton === "bulan" ? showMonth(authenticated) : null} */}
+				{/* MAIN */}
+				{/* {radioButton === "bulan" ? (
+					<TableRekapAbsenBulan
+						datas={dataRekapanAbsensiBulan}
+						title={`Rekapan Absensi ${request.kelas} ${
+							request.jurusan
+						} Bulan ${capitalize(request.bulan)} ${request.tahun}`}
+						borderColor="border-color4"
+						hoverBg="bg-color2"
+					/>
+				) : null} */}
+				{/* MAIN */}
+				{/* {(() => {
 					switch (true) {
-						case radioButton === "bulan" && authenticated.name !== null:
+						case radioButton === "bulan" && authenticated !== null:
 							return (
 								<TableRekapAbsenBulanAdmin
 									datas={dataRekapanAbsensiBulan}
@@ -216,7 +271,7 @@ export default function RekapanAbsensi() {
 								/>
 							);
 							break;
-						case radioButton === "bulan" && authenticated.name === null:
+						case radioButton === "bulan" && authenticated === null:
 							return (
 								<TableRekapAbsenBulan
 									datas={dataRekapanAbsensiBulan}
@@ -231,9 +286,10 @@ export default function RekapanAbsensi() {
 							return null;
 							break;
 					}
-				})()}
+				})()} */}
 				{/* {showMonthPresences(true)} */}
-				{radioButton === "semester" ? (
+				{/* MAIN */}
+				{/* {radioButton === "semester" ? (
 					<TableRekapAbsenSemester
 						datas={semesterPrecences}
 						title={`Rekapan Absensi ${request.kelas} ${
@@ -250,7 +306,8 @@ export default function RekapanAbsensi() {
 						borderColor="border-color4"
 						hoverBg="bg-color2"
 					/>
-				) : null}
+				) : null} */}
+				{/* MAIN */}
 			</div>
 		</div>
 	);

@@ -69,6 +69,7 @@ export default function ModalUpdateDeletePointSiswa({
 		} else if (datas?.jenis === null) {
 			setOpen(false);
 		}
+		console.log(tanggal);
 	};
 	const handleClose = () => {
 		setTanggal(dayjs(datas.tanggal, "D-M-YYYY"));

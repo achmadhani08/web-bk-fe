@@ -4,6 +4,7 @@ import {
 	createEntityAdapter,
 } from "@reduxjs/toolkit";
 import axios from "axios";
+import { urlAPI } from "../../../data/fixData";
 
 export const getYearPresences = createAsyncThunk(
 	"yearPresences/getYearPresences",
@@ -14,7 +15,7 @@ export const getYearPresences = createAsyncThunk(
 		console.log(request);
 		// const response = await axios.get("http://localhost:3005/semester-presents"); // Mock API
 		const response = await axios.get(
-			`http://127.0.0.1:8000/api/absen/tahun/${tahun}/${kelas}-${jurusan}`
+			`${urlAPI.absen}/tahun/${tahun}/${kelas}-${jurusan}`
 		); // Laravel API
 		console.log(response.data.data);
 		return response.data.data;

@@ -10,7 +10,7 @@ import { classData } from "../../data/fixData";
 
 export default function Filter({ request, setRequest, kelasJurusans }) {
 	const uniqueMajor = [
-		...new Map(kelasJurusans.map((item) => [item.jurusan, item])).values(),
+		...new Map(kelasJurusans?.map((item) => [item.jurusan, item])).values(),
 	];
 
 	let addDash = function (str) {
@@ -83,29 +83,15 @@ export default function Filter({ request, setRequest, kelasJurusans }) {
 					MenuProps={{ PaperProps: { sx: { maxHeight: 120 } } }}
 					label="Jurusan"
 				>
-					{uniqueMajor.map((e, index) => (
-						<MenuItem key={index} value={e.jurusan}>
-							{e.jurusan}
-						</MenuItem>
-					))}
+					{uniqueMajor
+						?.sort((a, b) => (a.jurusan > b.jurusan ? 1 : -1))
+						?.map((e, index) => (
+							<MenuItem key={index} value={e.jurusan}>
+								{e.jurusan}
+							</MenuItem>
+						))}
 				</Select>
 			</FormControl>
-
-			{/* Input Tahun */}
-			<TextField
-				required
-				id="input-tahun-absensiperbulan"
-				value={request.tahun}
-				onChange={(e) =>
-					setRequest({
-						...request,
-						tahun: e.target.value,
-					})
-				}
-				label="Tahun Ajaran"
-				variant="standard"
-				helperText="contoh: 2021-2022"
-			/>
 		</div>
 	);
 }

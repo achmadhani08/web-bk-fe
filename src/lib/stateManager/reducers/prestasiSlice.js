@@ -4,12 +4,13 @@ import {
 	createEntityAdapter,
 } from "@reduxjs/toolkit";
 import axios from "axios";
+import { urlAPI } from "../../../data/fixData";
 
 export const getPrestasis = createAsyncThunk(
 	"prestasis/getPrestasis",
 	async () => {
 		// const response = await axios.get("http://localhost:3005/top-prestasi"); // Mock API
-		const response = await axios.get("http://127.0.0.1:8000/api/top-prestasi"); // Laravel API
+		const response = await axios.get(`${urlAPI.penghargaan}/top-prestasi`); // Laravel API
 		return response.data.data;
 	}
 );
@@ -18,7 +19,7 @@ export const newPrestasis = createAsyncThunk(
 	"prestasis/newPrestasis",
 	async (request) => {
 		const response = await axios.post(
-			"http://127.0.0.1:8000/api/tambah-prestasi",
+			`${urlAPI.penghargaan}/tambah-prestasi`,
 			request,
 			{
 				headers: {
@@ -40,9 +41,9 @@ export const newPrestasis = createAsyncThunk(
 
 export const updatePrestasis = createAsyncThunk(
 	"prestasis/updatePrestasis",
-	async (request) => {
+	async (request, id) => {
 		const response = await axios.put(
-			"http://127.0.0.1:8000/api/edit-prestasi",
+			`${urlAPI.penghargaan}/${id}/edit-prestasi`,
 			request,
 			{
 				headers: {
@@ -64,23 +65,17 @@ export const updatePrestasis = createAsyncThunk(
 
 export const deletePrestasis = createAsyncThunk(
 	"prestasis/deletePrestasis",
-	async (request) => {
+	async (request, id) => {
 		const response = await axios.put(
-			"http://127.0.0.1:8000/api/hapus-prestasi",
+			`${urlAPI.penghargaan}/${id}/hapus-prestasi`,
 			request,
 			{
 				headers: {
 					"Content-Type": "application/x-www-form-urlencoded",
 					Accept: "application/x-www-form-urlencoded, text-plain, */*",
 					"X-Requested-With": "XMLHttpRequest",
-					// "X-CSRF-TOKEN": token,
 				},
 			}
-			// {
-			// 	headers: {
-			// 		"Content-Type": "application/x-www-form-urlencoded",
-			// 	},
-			// }
 		); // Laravel API
 		return response.data;
 	}

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { MdNotInterested, MdVerified } from "react-icons/md";
 
@@ -21,8 +21,10 @@ import TableAchievement from "./TableAchievement";
 
 import { dummyTopList } from "../../data/dummy/dummyTopList";
 import { dummyTodayPresences } from "../../data/dummy/dummyTodayPresences";
+import { UserContext } from "../../App";
 
 export default function Dashboard() {
+	const { authenticated } = useContext(UserContext);
 	const dispatch = useDispatch();
 	const apiPrestasis = useSelector(prestasiSelectors.selectAll);
 	const apiPelanggars = useSelector(pelanggarSelectors.selectAll);
@@ -34,6 +36,7 @@ export default function Dashboard() {
 		dispatch(getPrestasis());
 		dispatch(getPelanggars());
 		dispatch(getTodayPresences());
+		console.log(authenticated.isLogin);
 	}, [dispatch]);
 
 	useEffect(() => {
@@ -51,10 +54,10 @@ export default function Dashboard() {
 				...prestasis,
 				{
 					id: prestasis?.length + 1,
-					nama: "Tidak ada data",
-					kelas: "Tidak ada data",
+					nama: "-",
+					kelas: "-",
 					jurusan: "",
-					point: "Tidak ada data",
+					point: "-",
 				},
 			]);
 			// console.log(`Data Prestasi kurang ${10 - prestasis?.length}`);
@@ -65,10 +68,10 @@ export default function Dashboard() {
 				...pelanggars,
 				{
 					id: pelanggars?.length + 1,
-					nama: "Tidak ada data",
-					kelas: "Tidak ada data",
+					nama: "-",
+					kelas: "-",
 					jurusan: "",
-					point: "Tidak ada data",
+					point: "-",
 				},
 			]);
 		}

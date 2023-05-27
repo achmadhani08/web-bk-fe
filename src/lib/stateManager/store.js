@@ -2,7 +2,7 @@ import { configureStore } from "@reduxjs/toolkit";
 
 import prestasiReducer from "./reducers/prestasiSlice";
 import pelanggarReducer from "./reducers/pelanggarSlice";
-import pointReducer from "./reducers/pointSlice";
+import pointSiswaReducer from "./reducers/pointSlice";
 import todayPresencesReducer from "./reducers/todayPresencesSlice";
 import semesterPresencesReducer from "./reducers/semesterPresencesSlice";
 import yearPresencesReducer from "./reducers/yearPresencesSlice";
@@ -14,7 +14,7 @@ export const store = configureStore({
 	reducer: {
 		prestasi: prestasiReducer,
 		pelanggar: pelanggarReducer,
-		point: pointReducer,
+		pointSiswa: pointSiswaReducer,
 		todayPresences: todayPresencesReducer,
 		semesterPresences: semesterPresencesReducer,
 		yearPresences: yearPresencesReducer,

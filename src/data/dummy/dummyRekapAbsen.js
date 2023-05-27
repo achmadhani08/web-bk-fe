@@ -8,222 +8,130 @@ export const dataRekapanAbsensiBulan = [
 		kelas: "10 RPL",
 		days: [
 			{
-				H: true,
-				I: false,
-				S: false,
-				T: false,
-				A: false,
+				keterangan: "H",
+				date: "01-05-2023"
 			},
 			{
-				H: true,
-				I: false,
-				S: false,
-				T: false,
-				A: false,
+				keterangan: "I",
+				date: "02-05-2023"
 			},
 			{
-				H: true,
-				I: false,
-				S: false,
-				T: false,
-				A: false,
+				keterangan: "H",
+				date: "03-05-2023"
 			},
 			{
-				H: true,
-				I: false,
-				S: false,
-				T: false,
-				A: false,
+				keterangan: "I",
+				date: "04-05-2023"
 			},
 			{
-				H: true,
-				I: false,
-				S: false,
-				T: false,
-				A: false,
+				keterangan: "H",
+				date: "05-05-2023"
 			},
 			{
-				H: true,
-				I: false,
-				S: false,
-				T: false,
-				A: false,
+				keterangan: "I",
+				date: "06-05-2023"
 			},
 			{
-				H: true,
-				I: false,
-				S: false,
-				T: false,
-				A: false,
+				keterangan: "H",
+				date: "07-05-2023"
 			},
 			{
-				H: false,
-				I: true,
-				S: false,
-				T: false,
-				A: false,
+				keterangan: "I",
+				date: "08-05-2023"
 			},
 			{
-				H: false,
-				I: true,
-				S: false,
-				T: false,
-				A: false,
+				keterangan: "H",
+				date: "09-05-2023"
 			},
 			{
-				H: true,
-				I: false,
-				S: false,
-				T: false,
-				A: false,
+				keterangan: "I",
+				date: "10-05-2023"
 			},
 			{
-				H: true,
-				I: false,
-				S: false,
-				T: false,
-				A: false,
+				keterangan: "H",
+				date: "11-05-2023"
 			},
 			{
-				H: true,
-				I: false,
-				S: false,
-				T: false,
-				A: false,
+				keterangan: "I",
+				date: "12-05-2023"
 			},
 			{
-				H: true,
-				I: false,
-				S: false,
-				T: false,
-				A: false,
+				keterangan: "H",
+				date: "13-05-2023"
 			},
 			{
-				H: true,
-				I: false,
-				S: false,
-				T: false,
-				A: false,
+				keterangan: "I",
+				date: "14-05-2023"
 			},
 			{
-				H: false,
-				I: false,
-				S: true,
-				T: false,
-				A: false,
+				keterangan: "H",
+				date: "15-05-2023"
 			},
 			{
-				H: false,
-				I: false,
-				S: true,
-				T: false,
-				A: false,
+				keterangan: "I",
+				date: "16-05-2023"
 			},
 			{
-				H: false,
-				I: false,
-				S: true,
-				T: false,
-				A: false,
+				keterangan: "H",
+				date: "17-05-2023"
 			},
 			{
-				H: false,
-				I: false,
-				S: true,
-				T: false,
-				A: false,
+				keterangan: "I",
+				date: "18-05-2023"
 			},
 			{
-				H: true,
-				I: false,
-				S: false,
-				T: false,
-				A: false,
+				keterangan: "H",
+				date: "19-05-2023"
 			},
 			{
-				H: false,
-				I: false,
-				S: false,
-				T: true,
-				A: false,
+				keterangan: "I",
+				date: "20-05-2023"
 			},
 			{
-				H: true,
-				I: false,
-				S: false,
-				T: false,
-				A: false,
+				keterangan: "H",
+				date: "21-05-2023"
 			},
 			{
-				H: true,
-				I: false,
-				S: false,
-				T: false,
-				A: false,
+				keterangan: "I",
+				date: "22-05-2023"
 			},
 			{
-				H: true,
-				I: false,
-				S: false,
-				T: false,
-				A: false,
+				keterangan: "H",
+				date: "23-05-2023"
 			},
 			{
-				H: true,
-				I: false,
-				S: false,
-				T: false,
-				A: false,
+				keterangan: "I",
+				date: "24-05-2023"
 			},
 			{
-				H: true,
-				I: false,
-				S: false,
-				T: false,
-				A: false,
+				keterangan: "H",
+				date: "25-05-2023"
 			},
 			{
-				H: false,
-				I: false,
-				S: false,
-				T: true,
-				A: false,
+				keterangan: "I",
+				date: "26-05-2023"
 			},
 			{
-				H: true,
-				I: false,
-				S: false,
-				T: false,
-				A: false,
+				keterangan: "H",
+				date: "27-05-2023"
 			},
 			{
-				H: true,
-				I: false,
-				S: false,
-				T: false,
-				A: false,
+				keterangan: "I",
+				date: "28-05-2023"
 			},
 			{
-				H: true,
-				I: false,
-				S: false,
-				T: false,
-				A: false,
+				keterangan: "H",
+				date: "29-05-2023"
 			},
 			{
-				H: true,
-				I: false,
-				S: false,
-				T: false,
-				A: false,
+				keterangan: "I",
+				date: "30-05-2023"
 			},
 			{
-				H: true,
-				I: false,
-				S: false,
-				T: false,
-				A: false,
+				keterangan: "I",
+				date: "31-05-2023"
 			},
+
 		],
 	},
 	{
@@ -235,222 +143,130 @@ export const dataRekapanAbsensiBulan = [
 		kelas: "10 RPL",
 		days: [
 			{
-				H: false,
-				I: true,
-				S: false,
-				T: false,
-				A: false,
+				keterangan: "H",
+				date: "01-05-2023"
 			},
 			{
-				H: false,
-				I: true,
-				S: false,
-				T: false,
-				A: false,
+				keterangan: "I",
+				date: "02-05-2023"
 			},
 			{
-				H: false,
-				I: true,
-				S: false,
-				T: false,
-				A: false,
+				keterangan: "H",
+				date: "03-05-2023"
 			},
 			{
-				H: true,
-				I: false,
-				S: false,
-				T: false,
-				A: false,
+				keterangan: "I",
+				date: "04-05-2023"
 			},
 			{
-				H: true,
-				I: false,
-				S: false,
-				T: false,
-				A: false,
+				keterangan: "H",
+				date: "05-05-2023"
 			},
 			{
-				H: true,
-				I: false,
-				S: false,
-				T: false,
-				A: false,
+				keterangan: "I",
+				date: "06-05-2023"
 			},
 			{
-				H: true,
-				I: false,
-				S: false,
-				T: false,
-				A: false,
+				keterangan: "H",
+				date: "07-05-2023"
 			},
 			{
-				H: true,
-				I: false,
-				S: false,
-				T: false,
-				A: false,
+				keterangan: "I",
+				date: "08-05-2023"
 			},
 			{
-				H: true,
-				I: false,
-				S: false,
-				T: false,
-				A: false,
+				keterangan: "H",
+				date: "09-05-2023"
 			},
 			{
-				H: false,
-				I: true,
-				S: false,
-				T: false,
-				A: false,
+				keterangan: "I",
+				date: "10-05-2023"
 			},
 			{
-				H: false,
-				I: false,
-				S: true,
-				T: false,
-				A: false,
+				keterangan: "H",
+				date: "11-05-2023"
 			},
 			{
-				H: false,
-				I: false,
-				S: true,
-				T: false,
-				A: false,
+				keterangan: "I",
+				date: "12-05-2023"
 			},
 			{
-				H: false,
-				I: false,
-				S: false,
-				T: true,
-				A: false,
+				keterangan: "H",
+				date: "13-05-2023"
 			},
 			{
-				H: false,
-				I: false,
-				S: false,
-				T: true,
-				A: false,
+				keterangan: "I",
+				date: "14-05-2023"
 			},
 			{
-				H: false,
-				I: false,
-				S: false,
-				T: true,
-				A: false,
+				keterangan: "H",
+				date: "15-05-2023"
 			},
 			{
-				H: true,
-				I: false,
-				S: false,
-				T: false,
-				A: false,
+				keterangan: "I",
+				date: "16-05-2023"
 			},
 			{
-				H: true,
-				I: false,
-				S: false,
-				T: false,
-				A: false,
+				keterangan: "H",
+				date: "17-05-2023"
 			},
 			{
-				H: true,
-				I: false,
-				S: false,
-				T: false,
-				A: false,
+				keterangan: "I",
+				date: "18-05-2023"
 			},
 			{
-				H: true,
-				I: false,
-				S: false,
-				T: false,
-				A: false,
+				keterangan: "H",
+				date: "19-05-2023"
 			},
 			{
-				H: true,
-				I: false,
-				S: false,
-				T: false,
-				A: false,
+				keterangan: "I",
+				date: "20-05-2023"
 			},
 			{
-				H: true,
-				I: false,
-				S: false,
-				T: false,
-				A: false,
+				keterangan: "H",
+				date: "21-05-2023"
 			},
 			{
-				H: true,
-				I: false,
-				S: false,
-				T: false,
-				A: false,
+				keterangan: "I",
+				date: "22-05-2023"
 			},
 			{
-				H: true,
-				I: false,
-				S: false,
-				T: false,
-				A: false,
+				keterangan: "H",
+				date: "23-05-2023"
 			},
 			{
-				H: false,
-				I: true,
-				S: false,
-				T: false,
-				A: false,
+				keterangan: "I",
+				date: "24-05-2023"
 			},
 			{
-				H: true,
-				I: false,
-				S: false,
-				T: false,
-				A: false,
+				keterangan: "H",
+				date: "25-05-2023"
 			},
 			{
-				H: true,
-				I: false,
-				S: false,
-				T: false,
-				A: false,
+				keterangan: "I",
+				date: "26-05-2023"
 			},
 			{
-				H: true,
-				I: false,
-				S: false,
-				T: false,
-				A: false,
+				keterangan: "H",
+				date: "27-05-2023"
 			},
 			{
-				H: true,
-				I: false,
-				S: false,
-				T: false,
-				A: false,
+				keterangan: "I",
+				date: "28-05-2023"
 			},
 			{
-				H: true,
-				I: false,
-				S: false,
-				T: false,
-				A: false,
+				keterangan: "H",
+				date: "29-05-2023"
 			},
 			{
-				H: true,
-				I: false,
-				S: false,
-				T: false,
-				A: false,
+				keterangan: "I",
+				date: "30-05-2023"
 			},
 			{
-				H: false,
-				I: false,
-				S: false,
-				T: true,
-				A: false,
+				keterangan: "I",
+				date: "31-05-2023"
 			},
+		
 		],
 	},
 	{
@@ -462,222 +278,130 @@ export const dataRekapanAbsensiBulan = [
 		kelas: "10 RPL",
 		days: [
 			{
-				H: false,
-				I: false,
-				S: false,
-				T: false,
-				A: false,
+				keterangan: "H",
+				date: "01-05-2023"
 			},
 			{
-				H: true,
-				I: false,
-				S: false,
-				T: false,
-				A: false,
+				keterangan: "I",
+				date: "02-05-2023"
 			},
 			{
-				H: true,
-				I: false,
-				S: false,
-				T: false,
-				A: false,
+				keterangan: "H",
+				date: "03-05-2023"
 			},
 			{
-				H: true,
-				I: false,
-				S: false,
-				T: false,
-				A: false,
+				keterangan: "I",
+				date: "04-05-2023"
 			},
 			{
-				H: true,
-				I: false,
-				S: false,
-				T: false,
-				A: false,
+				keterangan: "H",
+				date: "05-05-2023"
 			},
 			{
-				H: true,
-				I: false,
-				S: false,
-				T: false,
-				A: false,
+				keterangan: "I",
+				date: "06-05-2023"
 			},
 			{
-				H: true,
-				I: false,
-				S: false,
-				T: false,
-				A: false,
+				keterangan: "H",
+				date: "07-05-2023"
 			},
 			{
-				H: true,
-				I: false,
-				S: false,
-				T: false,
-				A: false,
+				keterangan: "I",
+				date: "08-05-2023"
 			},
 			{
-				H: true,
-				I: false,
-				S: false,
-				T: false,
-				A: false,
+				keterangan: "H",
+				date: "09-05-2023"
 			},
 			{
-				H: true,
-				I: false,
-				S: false,
-				T: false,
-				A: false,
+				keterangan: "I",
+				date: "10-05-2023"
 			},
 			{
-				H: true,
-				I: false,
-				S: false,
-				T: false,
-				A: false,
+				keterangan: "H",
+				date: "11-05-2023"
 			},
 			{
-				H: true,
-				I: false,
-				S: false,
-				T: false,
-				A: false,
+				keterangan: "I",
+				date: "12-05-2023"
 			},
 			{
-				H: false,
-				I: true,
-				S: false,
-				T: false,
-				A: false,
+				keterangan: "H",
+				date: "13-05-2023"
 			},
 			{
-				H: false,
-				I: true,
-				S: false,
-				T: false,
-				A: false,
+				keterangan: "I",
+				date: "14-05-2023"
 			},
 			{
-				H: true,
-				I: false,
-				S: false,
-				T: false,
-				A: false,
+				keterangan: "H",
+				date: "15-05-2023"
 			},
 			{
-				H: true,
-				I: false,
-				S: false,
-				T: false,
-				A: false,
+				keterangan: "I",
+				date: "16-05-2023"
 			},
 			{
-				H: true,
-				I: false,
-				S: false,
-				T: false,
-				A: false,
+				keterangan: "H",
+				date: "17-05-2023"
 			},
 			{
-				H: true,
-				I: false,
-				S: false,
-				T: false,
-				A: false,
+				keterangan: "I",
+				date: "18-05-2023"
 			},
 			{
-				H: true,
-				I: false,
-				S: false,
-				T: false,
-				A: false,
+				keterangan: "H",
+				date: "19-05-2023"
 			},
 			{
-				H: true,
-				I: false,
-				S: false,
-				T: false,
-				A: false,
+				keterangan: "I",
+				date: "20-05-2023"
 			},
 			{
-				H: true,
-				I: false,
-				S: false,
-				T: false,
-				A: false,
+				keterangan: "H",
+				date: "21-05-2023"
 			},
 			{
-				H: false,
-				I: false,
-				S: false,
-				T: true,
-				A: false,
+				keterangan: "I",
+				date: "22-05-2023"
 			},
 			{
-				H: false,
-				I: false,
-				S: false,
-				T: true,
-				A: false,
+				keterangan: "H",
+				date: "23-05-2023"
 			},
 			{
-				H: true,
-				I: false,
-				S: false,
-				T: false,
-				A: false,
+				keterangan: "I",
+				date: "24-05-2023"
 			},
 			{
-				H: true,
-				I: false,
-				S: false,
-				T: false,
-				A: false,
+				keterangan: "H",
+				date: "25-05-2023"
 			},
 			{
-				H: true,
-				I: false,
-				S: false,
-				T: false,
-				A: false,
+				keterangan: "I",
+				date: "26-05-2023"
 			},
 			{
-				H: true,
-				I: false,
-				S: false,
-				T: false,
-				A: false,
+				keterangan: "H",
+				date: "27-05-2023"
 			},
 			{
-				H: true,
-				I: false,
-				S: false,
-				T: false,
-				A: false,
+				keterangan: "I",
+				date: "28-05-2023"
 			},
 			{
-				H: true,
-				I: false,
-				S: false,
-				T: false,
-				A: false,
+				keterangan: "H",
+				date: "29-05-2023"
 			},
 			{
-				H: false,
-				I: false,
-				S: false,
-				T: true,
-				A: false,
+				keterangan: "I",
+				date: "30-05-2023"
 			},
 			{
-				H: false,
-				I: false,
-				S: true,
-				T: false,
-				A: false,
+				keterangan: "I",
+				date: "31-05-2023"
 			},
+
 		],
 	},
 	{

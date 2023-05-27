@@ -2,28 +2,32 @@ import { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { IoSettingsSharp } from "react-icons/io5";
 import "../assets/css/navbar.css";
-import axios from "axios";
-import Cookies from "universal-cookie";
 
 import logosmk10 from "../assets/image/logo-10.png";
 import logobk from "../assets/image/logo-bk.png";
+import admin from "../assets/image/admin.png";
 import { UserContext } from "../App";
+import { logout } from "../lib/stateManager/reducers/API/auth";
 
 export default function Navbar() {
-	const cookies = new Cookies();
-	const [authenticated, setAuthenticated] = useContext(UserContext);
+	const { authenticated, setAuthenticated } = useContext(UserContext);
 
 	const handleLogout = async () => {
-		await axios.post("http://127.0.0.1:8000/api/logout", {
-			headers: {
-				Authorization: `Bearer ${cookies.get("Authorization")}`,
-			},
-		});
+		logout(setAuthenticated);
+		// // await axios.post("http://127.0.0.1:8000/api/logout", {
+		// // 	headers: {
+		// // 		Authorization: `Bearer ${cookies.get("Authorization")}`,
+		// // 	},
+		// // });
 
-		setAuthenticated({
-			name: null,
-			email: null,
-		});
+		// // cookies.remove("Authorization");
+		// localStorage.removeItem("Authorization");
+		// setAuthenticated({
+		// 	token: null,
+		// 	isLogin: false,
+		// 	data: null,
+		// });
+		// window.href("dashboard");
 	};
 
 	return (
@@ -98,16 +102,28 @@ export default function Navbar() {
 			<div className="navbar-end">
 				<div className="flex">
 					<div className="dropdown dropdown-end">
-						<label tabIndex="0" className="btn btn-ghost btn-circle">
-							<IoSettingsSharp className="h-5 w-5 text-white" />
-						</label>
+						{!authenticated.isLogin ? (
+							<label tabIndex="0" className="btn btn-ghost btn-circle">
+								<IoSettingsSharp className="h-5 w-5 text-white" />
+							</label>
+						) : (
+							<label tabIndex="0" className="btn btn-ghost btn-circle">
+								{/* <IoSettingsSharp className="h-5 w-5 text-white" /> */}
+								<img className="w-8 h-8 rounded-full" src={admin} alt="admin" />
+							</label>
+						)}
 						<ul
 							tabIndex="0"
 							className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-color1 text-gray-700 rounded-box w-52"
 						>
-							{authenticated.name !== null ? (
+							{!authenticated.isLogin ? (
 								<li>
-									<p>Login</p>
+									<NavLink
+										className="focus:bg-color3 focus:text-black"
+										to="/login"
+									>
+										Login
+									</NavLink>
 								</li>
 							) : (
 								<>
@@ -129,7 +145,12 @@ export default function Navbar() {
 									</li>
 									<>
 										<li>
-											<p>Register Admin</p>
+											<NavLink
+												className="focus:bg-color3 focus:text-black"
+												to="/register"
+											>
+												Register Admin
+											</NavLink>
 										</li>
 									</>
 									<li onClick={handleLogout}>

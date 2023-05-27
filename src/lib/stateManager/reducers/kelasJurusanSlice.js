@@ -1,15 +1,19 @@
+import { toast } from 'react-toastify';
 import {
 	createSlice,
 	createAsyncThunk,
 	createEntityAdapter,
 } from "@reduxjs/toolkit";
 import axios from "axios";
+import { urlAPI } from "../../../data/fixData";
 
 export const getKelasJurusans = createAsyncThunk(
 	"kelasJurusan/getKelasJurusans",
-	async () => {
+	async (setLoading) => {
 		// const response = await axios.get("http://localhost:3005/kelas-jurusan"); // Mock API
-		const response = await axios.get("http://127.0.0.1:8000/api/kelas"); // Laravel API
+		setLoading(true)
+		const response = await axios.get(`${urlAPI.kelas}/list`); // Laravel API
+		setLoading(false)
 		return response.data.data;
 	}
 );
@@ -18,7 +22,7 @@ export const newKelasJurusans = createAsyncThunk(
 	"kelasJurusan/postKelasJurusans",
 	async (request) => {
 		const response = await axios.post(
-			"http://127.0.0.1:8000/api/tambah-kelas",
+			`${urlAPI.kelas}/tambah-kelas`,
 			request
 			// {
 			// 	headers: {
@@ -29,7 +33,10 @@ export const newKelasJurusans = createAsyncThunk(
 			// 	},
 			// }
 		); // Laravel API
-		console.log(request, "Hit API");
+
+		if (response?.data?.status === 'success') {
+			toast.success('Berhasil menambah data kelas');
+		} else toast.error('Gagal menambah data kelas');
 		return response.data;
 	}
 );
@@ -39,23 +46,29 @@ export const updateKelasJurusans = createAsyncThunk(
 	async (request) => {
 		let id = request?.id;
 		const response = await axios.put(
-			`http://127.0.0.1:8000/api/kelas/${id}/edit-kelas`,
-			{ request },
+			`${urlAPI.kelas}/${id}/edit-kelas`,
 			{
-				headers: {
-					"Content-Type": "application/x-www-form-urlencoded",
-					Accept: "application/x-www-form-urlencoded, text-plain, */*",
-					"X-Requested-With": "XMLHttpRequest",
-					// "X-CSRF-TOKEN": token,
-				},
+				kelas: request.kelas,
+				jurusan: request.jurusan
 			}
+			// {
+			// 	headers: {
+			// 		"Content-Type": "application/x-www-form-urlencoded",
+			// 		Accept: "application/x-www-form-urlencoded, text-plain, */*",
+			// 		"X-Requested-With": "XMLHttpRequest",
+			// 		// "X-CSRF-TOKEN": token,
+			// 	},
+			// }
 			// {
 			// 	headers: {
 			// 		"Content-Type": "application/x-www-form-urlencoded",
 			// 	},
 			// }
 		); // Laravel API
-		console.log(request, "Hit API");
+
+		if (response?.data?.status === 'success') {
+			toast.info('Berhasil mengubah data kelas');
+		} else toast.error('Gagal mengubah data kelas');
 		return response.data;
 	}
 );
@@ -65,22 +78,25 @@ export const deleteKelasJurusans = createAsyncThunk(
 	async (request) => {
 		let id = request?.id;
 		const response = await axios.delete(
-			`http://127.0.0.1:8000/api/kelas/${id}/hapus-kelas`,
-			{
-				headers: {
-					"Content-Type": "application/x-www-form-urlencoded",
-					Accept: "application/x-www-form-urlencoded, text-plain, */*",
-					"X-Requested-With": "XMLHttpRequest",
-					// "X-CSRF-TOKEN": token,
-				},
-			}
+			`${urlAPI.kelas}/${id}/hapus-kelas`
+			// {
+			// 	headers: {
+			// 		"Content-Type": "application/x-www-form-urlencoded",
+			// 		Accept: "application/x-www-form-urlencoded, text-plain, */*",
+			// 		"X-Requested-With": "XMLHttpRequest",
+			// 		// "X-CSRF-TOKEN": token,
+			// 	},
+			// }
 			// {
 			// 	headers: {
 			// 		"Content-Type": "application/x-www-form-urlencoded",
 			// 	},
 			// }
 		); // Laravel API
-		console.log(request, "Hit API Delete Kelas");
+
+		if (response?.data?.status === 'success') {
+			toast.success('Berhasil menghapus data kelas');
+		} else toast.error('Gagal menghapus data kelas');
 		return response.data;
 	}
 );

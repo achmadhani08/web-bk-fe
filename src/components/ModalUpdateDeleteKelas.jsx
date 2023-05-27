@@ -18,10 +18,10 @@ import {
 import { classData } from "../data/fixData";
 
 import {
-	deletePelanggars,
-	getPelanggars,
-	updatePelanggars,
-} from "../lib/stateManager/reducers/pelanggarSlice";
+	deleteKelasJurusans,
+	getKelasJurusans,
+	updateKelasJurusans,
+} from "../lib/stateManager/reducers/kelasJurusanSlice";
 
 const style = {
 	position: "absolute",
@@ -36,10 +36,16 @@ const style = {
 	p: 4,
 };
 
-export default function ModalUpdateDeleteKelas({ datas, title, label }) {
+export default function ModalUpdateDeleteKelas({
+	getDataKelas,
+	datas,
+	title,
+	label,
+}) {
 	const dispatch = useDispatch();
 
 	const [request, setRequest] = useState({
+		id: datas.id,
 		kelas: datas.kelas,
 		jurusan: datas.jurusan,
 	});
@@ -63,7 +69,7 @@ export default function ModalUpdateDeleteKelas({ datas, title, label }) {
 				name: name,
 				many: many,
 			});
-		} else console.log(datas.jurusan);
+		} else console.log("jurusan", datas.jurusan);
 	}, [datas]);
 
 	useEffect(() => {
@@ -75,13 +81,8 @@ export default function ModalUpdateDeleteKelas({ datas, title, label }) {
 
 	const [open, setOpen] = useState(false);
 
-	const handleOpen = (datas) => {
-		// if (datas?.jenis !== null) {
-		setOpen(true);
-		// } else if (datas?.jenis === null) {
-		// 	setOpen(false);
-		// }
-	};
+	const handleOpen = () => setOpen(true);
+
 	const handleClose = () => {
 		setRequest({
 			...request,
@@ -101,15 +102,15 @@ export default function ModalUpdateDeleteKelas({ datas, title, label }) {
 	const handleDelete = async (e) => {
 		e.preventDefault();
 
-		// await dispatch(deletePelanggars(e));
-		// dispatch(getPelanggars());
+		await dispatch(deleteKelasJurusans(request));
+		getDataKelas();
 		setOpen(false);
 	};
 
 	const handleSave = async (e) => {
 		e.preventDefault();
-		// await dispatch(updatePelanggars(request));
-		// dispatch(getPelanggars());
+		await dispatch(updateKelasJurusans(request));
+		getDataKelas();
 		setOpen(false);
 	};
 	console.log(datas);

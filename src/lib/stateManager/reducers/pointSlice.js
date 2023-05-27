@@ -4,45 +4,33 @@ import {
 	createEntityAdapter,
 } from "@reduxjs/toolkit";
 import axios from "axios";
+import { urlAPI } from "../../../data/fixData";
 
 export const getPointSiswas = createAsyncThunk(
 	"point/getPointSiswas",
-	async (nis) => {
-		// const response = await axios.get("http://localhost:3005/top-prestasi"); // Mock API
+	async (request) => {
+		let nis = request.nis;
+
 		const response = await axios.get(
-			`http://127.0.0.1:8000/api/siswa/point/${nis}`
+			`${urlAPI.point}/siswa/${nis}`
 		); // Laravel API
 		return response.data.data;
 	}
 );
 
-export const getPointKelas = createAsyncThunk(
-	"point/getPointKelas",
-	async (kelas, jurusan) => {
-		// const response = await axios.get("http://localhost:3005/top-prestasi"); // Mock API
-		const response = await axios.get(
-			`http://127.0.0.1:8000/api/point/${kelas}-${jurusan}`
-		); // Laravel API
-		return response.data.data;
-	}
-);
-
-const pointEntity = createEntityAdapter({
-	selectId: (point) => point.id,
+const pointSiswaEntity = createEntityAdapter({
+	selectId: (pointSiswa) => pointSiswa.id,
 });
 
-const pointSlice = createSlice({
-	name: "point",
-	initialState: pointEntity.getInitialState(),
+const pointSiswaSlice = createSlice({
+	name: "pointSiswa",
+	initialState: pointSiswaEntity.getInitialState(),
 	extraReducers: {
 		[getPointSiswas.fulfilled]: (state, action) => {
-			pointEntity.setAll(state, action.payload);
-		},
-		[getPointKelas.fulfilled]: (state, action) => {
-			pointEntity.setAll(state, action.payload);
+			pointSiswaEntity.setAll(state, action.payload);
 		},
 	},
 });
 
-export const pointSelectors = pointEntity.getSelectors((state) => state.point);
-export default pointSlice.reducer;
+export const pointSiswaSelectors = pointSiswaEntity.getSelectors((state) => state.pointSiswa);
+export default pointSiswaSlice.reducer;

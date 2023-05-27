@@ -296,7 +296,7 @@ export const dataRekapPointSiswa = {
 	],
 	rekap_penghargaan: [
 		{
-			tanggal: "Wed Dec 14 2022 00:00:00 GMT+0700 (Western Indonesia Time)",
+			tanggal: "14-12-2022",
 			jenis: 6,
 			desc: "Membawa nama baik sekolah tingkat kecamatan",
 			point: 10,

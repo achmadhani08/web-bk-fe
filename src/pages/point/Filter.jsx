@@ -8,27 +8,9 @@ import {
 
 import { classData } from "../../data/fixData";
 
-export default function Filter({ request, setRequest }) {
-	let jurusan = [
-		{
-			value: "AKL1",
-		},
-		{
-			value: "AKL2",
-		},
-		{
-			value: "BDP1",
-		},
-		{
-			value: "BDP2",
-		},
-		{
-			value: "OTKP1",
-		},
-		{
-			value: "OTKP2",
-		},
-		{ value: "RPL" },
+export default function Filter({ request, setRequest, kelasJurusans }) {
+	const uniqueMajor = [
+		...new Map(kelasJurusans?.map((item) => [item.jurusan, item])).values(),
 	];
 	return (
 		<div className="flex bg-color1 justify-center px-6 py-5 gap-20 items-baseline shadow-[1px_0_5px_0_rgba(113,113,112,1)]">
@@ -71,11 +53,13 @@ export default function Filter({ request, setRequest }) {
 					label="Jurusan"
 					MenuProps={{ PaperProps: { sx: { maxHeight: 120 } } }}
 				>
-					{jurusan.map((e, index) => (
-						<MenuItem key={index} value={e.value}>
-							{e.value}
-						</MenuItem>
-					))}
+					{uniqueMajor
+						?.sort((a, b) => (a.jurusan > b.jurusan ? 1 : -1))
+						?.map((e, index) => (
+							<MenuItem key={index} value={e.jurusan}>
+								{e.jurusan}
+							</MenuItem>
+						))}
 				</Select>
 			</FormControl>
 

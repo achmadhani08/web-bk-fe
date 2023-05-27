@@ -1,4 +1,14 @@
-export const classData = [{ value: 10 }, { value: 11 }, { value: 12 }];
+export const urlAPI = {
+	absen: "http://127.0.0.1:8000/api/absen",
+	base: "http://127.0.0.1:8000/api",
+	kelas: "http://127.0.0.1:8000/api/kelas",
+	pelanggaran: "http://127.0.0.1:8000/api/pelanggaran",
+	penghargaan: "http://127.0.0.1:8000/api/penghargaan",
+	point: "http://127.0.0.1:8000/api/point",
+	siswa: "http://127.0.0.1:8000/api/siswa"
+}
+
+export const classData = [{ value: "10" }, { value: "11" }, { value: "12" }];
 
 export const monthData = [
 	{

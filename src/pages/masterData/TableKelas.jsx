@@ -1,7 +1,13 @@
 import ModalAddKelas from "../../components/ModalAddKelas";
 import ModalUpdateDeleteKelas from "../../components/ModalUpdateDeleteKelas";
 
-export default function TableList({ datas, title, borderColor, hoverBg }) {
+export default function TableList({
+	getDataKelas,
+	datas,
+	title,
+	borderColor,
+	hoverBg,
+}) {
 	return (
 		<div className="relative">
 			<div className={`py-2 border-2 ${borderColor} rounded-t-2xl`}>
@@ -10,7 +16,7 @@ export default function TableList({ datas, title, borderColor, hoverBg }) {
 				</h2>
 			</div>
 
-			<ModalAddKelas title="Buat Data Kelas" />
+			<ModalAddKelas getDataKelas={getDataKelas} title="Buat Data Kelas" />
 
 			<table className="w-full border-collapse table-auto overflow-scroll text-slate-800">
 				<thead className="flex w-full ">
@@ -25,6 +31,7 @@ export default function TableList({ datas, title, borderColor, hoverBg }) {
 				>
 					{datas?.map((data, index) => (
 						<ModalUpdateDeleteKelas
+							getDataKelas={getDataKelas}
 							datas={datas[index]}
 							title="Update / Delete Kelas"
 							key={index}

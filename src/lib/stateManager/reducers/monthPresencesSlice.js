@@ -4,6 +4,7 @@ import {
 	createEntityAdapter,
 } from "@reduxjs/toolkit";
 import axios from "axios";
+import { urlAPI } from "../../../data/fixData";
 
 export const getMonthPresences = createAsyncThunk(
 	"monthPresences/getMonthPresences",
@@ -16,7 +17,7 @@ export const getMonthPresences = createAsyncThunk(
 
 		// const response = await axios.get("http://localhost:3005/semester-presents"); // Mock API
 		const response = await axios.get(
-			`http://127.0.0.1:8000/api/absen/bulan/${bulan}/${tahun}/${kelas}-${jurusan}`
+			`${urlAPI.absen}/bulan/${bulan}/${tahun}/${kelas}-${jurusan}`
 		); // Laravel API
 		console.log(response.data.data);
 		return response.data.data;
@@ -34,6 +35,15 @@ const monthPresencesSlice = createSlice({
 		[getMonthPresences.fulfilled]: (state, action) => {
 			monthPresencesEntity.setAll(state, action.payload);
 		},
+		// [newMonthPresences.fulfilled]: (state, action) => {
+		// 	monthPresencesEntity.addOne(state, action.payload);
+		// },
+		// [updateMonthPresences.fulfilled]: (state, action) => {
+		// 	monthPresencesEntity.updateOne(state, action.payload);
+		// },
+		// [deleteMonthPresences.fulfilled]: (state, action) => {
+		// 	monthPresencesEntity.removeOne(state, action.payload);
+		// },
 	},
 });
 

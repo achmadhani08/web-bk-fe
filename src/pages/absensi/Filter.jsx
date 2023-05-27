@@ -19,7 +19,7 @@ export default function Filter({
 	kelasJurusans,
 }) {
 	const uniqueMajor = [
-		...new Map(kelasJurusans.map((item) => [item.jurusan, item])).values(),
+		...new Map(kelasJurusans?.map((item) => [item.jurusan, item])).values(),
 	];
 
 	let addDash = function (str) {
@@ -92,11 +92,13 @@ export default function Filter({
 					MenuProps={{ PaperProps: { sx: { maxHeight: 120 } } }}
 					label="Jurusan"
 				>
-					{uniqueMajor.map((e, index) => (
-						<MenuItem key={index} value={e.jurusan}>
-							{e.jurusan}
-						</MenuItem>
-					))}
+					{uniqueMajor
+						?.sort((a, b) => (a.jurusan > b.jurusan ? 1 : -1))
+						?.map((e, index) => (
+							<MenuItem key={index} value={e.jurusan}>
+								{e.jurusan}
+							</MenuItem>
+						))}
 				</Select>
 			</FormControl>
 

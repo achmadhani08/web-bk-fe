@@ -1,21 +1,17 @@
-import { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useState } from "react";
 import { BsSave } from "react-icons/bs";
 import { MdOutlineCancel } from "react-icons/md";
 import {
 	TextField,
-	FormControl,
 	IconButton,
-	InputLabel,
-	Select,
-	MenuItem,
 	Box,
 	Typography,
 	Modal,
+	ToggleButtonGroup,
+	ToggleButton,
 } from "@mui/material";
 
-import { classData } from "../data/fixData";
-import { newKelasJurusans } from "../lib/stateManager/reducers/kelasJurusanSlice";
+import { addSiswa } from "../lib/stateManager/reducers/API/siswa";
 
 const style = {
 	position: "absolute",
@@ -30,40 +26,45 @@ const style = {
 	p: 4,
 };
 
-export default function ModalAddKelas({ title, getDataKelas }) {
-	const dispatch = useDispatch();
+export default function ModalAddSiswa({ title, kelas, jurusan, getDataSiswa }) {
 	const [open, setOpen] = useState(false);
 
 	const [request, setRequest] = useState({
-		kelas: "",
-		jurusan: "",
-	});
-	const [jurusan, setJurusan] = useState({
-		name: "",
-		many: "",
+		kelas: kelas,
+		jurusan: jurusan,
+		nama: "",
+		jk: "Laki-laki",
+		nis: "",
 	});
 
-	useEffect(() => {
+	const handleRadio = (event, newValue) => {
 		setRequest({
 			...request,
-			jurusan: `${jurusan.name}${jurusan.many}`,
+			jk: newValue,
 		});
-	}, [jurusan]);
+		if (newValue === null) {
+			return;
+		}
+	};
 
 	const handleClose = () => {
 		setRequest({
 			...request,
-			kelas: "",
-			jurusan: "",
+			kelas: kelas,
+			jurusan: jurusan,
+			nama: "",
+			jk: "Laki-laki",
+			nis: "",
 		});
 		setOpen(false);
 	};
-	const handleSave = async (e) => {
-		e.preventDefault();
 
-		await dispatch(newKelasJurusans(request));
-		getDataKelas();
-		setOpen(false);
+	const handleSave = async () => {
+		await addSiswa(request);
+		getDataSiswa();
+
+		console.log(request);
+		handleClose();
 	};
 
 	const handleOpen = () => setOpen(true);
@@ -107,64 +108,43 @@ export default function ModalAddKelas({ title, getDataKelas }) {
 					</Typography>
 					<Typography id="modal-modal-description" sx={{ mt: 2 }}>
 						<div className="flex flex-col gap-4">
-							<div className="flex justify-around">
-								<FormControl required className="w-[50%]">
-									<InputLabel id="select-label">Kelas</InputLabel>
-									<Select
-										labelId="select-label"
-										id="select"
-										value={request.kelas}
-										label="Kelas"
-										name="kelas"
-										onChange={handleChange}
-										MenuProps={{ PaperProps: { sx: { maxHeight: 200 } } }}
-									>
-										{classData?.map((e, index) => (
-											<MenuItem key={index} value={e.value}>
-												{e.value}
-											</MenuItem>
-										))}
-									</Select>
-								</FormControl>
-							</div>
-
 							<div className="flex gap-5 justify-center">
 								<TextField
-									className="w-1/2"
+									className="w-[80%]"
 									id="outlined-basic"
-									label="Jurusan (Singkat)"
-									helperText="Contoh AKL, BDP, OTKP, RPL"
+									label="Nama Lengkap"
 									required
 									rows={1}
-									name="jurusan"
-									// maxRows={4}
+									name="nama"
 									variant="outlined"
-									onChange={(e) => {
-										setJurusan({
-											...jurusan,
-											name: e.target.value,
-										});
-									}}
-									value={jurusan.name}
+									onChange={handleChange}
+									value={request.nama}
 								/>
-
+							</div>
+							<div className="flex justify-center">
 								<TextField
-									className="w-1/2"
+									className="w-[70%]"
 									inputProps={{ inputMode: "numeric", pattern: "[0-9]*" }}
+									required
 									id="outlined-basic"
-									label="Kelas ke?"
-									helperText="Contoh 1, 2 (AKL 1, AKL 2) | Boleh Kosong"
+									label="NIS"
 									rows={1}
-									name="banyak"
+									name="nis"
 									variant="outlined"
-									onChange={(e) => {
-										setJurusan({
-											...jurusan,
-											many: e.target.value,
-										});
-									}}
-									value={jurusan.many}
+									onChange={handleChange}
+									value={request.nis}
 								/>
+							</div>
+							<div className="flex justify-around">
+								<ToggleButtonGroup
+									className="bg-color2"
+									value={request.jk}
+									exclusive
+									onChange={handleRadio}
+								>
+									<ToggleButton value="Laki-laki">Laki-laki</ToggleButton>
+									<ToggleButton value="Perempuan">Perempuan</ToggleButton>
+								</ToggleButtonGroup>
 							</div>
 						</div>
 					</Typography>
